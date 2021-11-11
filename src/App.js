@@ -1,7 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import PlantIndex from './containers/PlantIndex'
-import PlantShow from './components/PlantShow'
+import { PlantIndex, PlantShow } from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 
 function App() {

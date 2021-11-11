@@ -1,5 +1,5 @@
 import React from 'react'
-import PlantShow from './PlantShow'
+import { PlantShow } from './indexExports'
 
 export default function PlantCard({name, altName, imgURL, description, origin}){
   return <div className="card">
