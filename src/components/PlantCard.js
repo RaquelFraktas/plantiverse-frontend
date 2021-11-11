@@ -1,3 +1,6 @@
+import React from 'react'
+import PlantShow from './PlantShow'
+
 export default function PlantCard({name, altName, imgURL, description, origin}){
   return <div className="card">
       {/* <img src={imgURL} alt={name}/> */}
