@@ -4,3 +4,5 @@ export const getPlants = () => {
   .then(plants => dispatch({type: "GET_PLANTS", payload: plants})
   )
 } 
+
+// I'm using this instead of mapDispatchToProps, and passing it in thru my connect

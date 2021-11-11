@@ -1,13 +1,16 @@
 import { useEffect } from "react"
 import { getPlants } from "../redux/actionCreators"
 import { connect} from "react-redux"
+import PlantCard from '../components/PlantCard'
 
 function PlantIndex(props){
-    useEffect(props.getPlants, [props.getPlants])
+  useEffect(props.getPlants, [props.getPlants])  
+    // this is my componentDidMount
+  console.log(props.plants)
 
-    console.log(props.plants)
-    // this is my componentDidMount 
-    return <h1>Plants go here</h1>
+  return <div className="cards">
+      {props.plants.map(plant => <PlantCard {...plant} key={plant.id}/>)}
+  </div>
 }
 
 const mapStateToProps = (state) => {
