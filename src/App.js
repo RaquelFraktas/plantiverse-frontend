@@ -8,9 +8,7 @@ function App() {
     <div className="App">
       <Switch>
       <Route path="/plants/:id"> <PlantShow/> </Route> 
-      {/* maybe dont need that one ^^^  find out if i need nested routes to show the back of a plant card*/}
         <Route path="/plants"> <PlantIndex/> </Route>
-
       </Switch>
     </div>
   );
