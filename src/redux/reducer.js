@@ -4,6 +4,7 @@ const initialState = {
     name: "",
     altName: "",
     origin: "",
+    imgUrl: "",
     description: "",
   }
 }
