@@ -2,13 +2,14 @@ import React from 'react'
 import { PlantShow } from './indexExports'
 import { Link } from 'react-router-dom'
 
-export default function PlantCard({id, name, altName, imgURL, description, origin}){
+export default function PlantCard({id, name, altName, imgUrl, description, origin}){
   return <div className="card">
-      {/* <img src={imgURL} alt={name}/> */}
+      <img src={imgUrl} alt={name}/>
         <Link to={`/plants/${id}`}> <h2>{name}</h2> </ Link>
         <h3>{altName}</h3>
         <span className="origin"> {origin}</span>
       <p className="description">{description}</p>
+      {console.log(id)}
 
   </div>
 }
