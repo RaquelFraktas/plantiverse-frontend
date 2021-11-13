@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 
 function PlantShow(props){
   const routeId = useParams().id
-  console.log(props)
+
+  const spinner = <div class="loader"></div>
 
   useEffect(() => {
     props.getPlant(routeId)
     //returning a function is run when unmounting.
-    return clearPlant
+    return props.clearPlant
   }, [props.getPlant, routeId])    
 
 

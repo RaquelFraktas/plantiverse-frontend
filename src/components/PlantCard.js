@@ -7,7 +7,6 @@ export default function PlantCard({id, name, altName, imgUrl, description, origi
         <Link to={`/plants/${id}`}> <h2>{name}</h2> </ Link>
         <h3>{altName}</h3>
         <span className="origin"> {origin}</span>
-      {console.log(id)}
 
   </div>
 }

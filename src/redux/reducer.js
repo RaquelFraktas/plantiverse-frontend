@@ -19,6 +19,7 @@ export default function reducer(state=initialState, {type, payload}){
       console.log("individual plant here")
       return {...state, selectedPlant: payload};
     case "CLEAR_PLANT":
+      console.log("clearrrringg")
       return {...state, selectedPlant: initialPlant };
     default:
       return {...state}
