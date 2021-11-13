@@ -10,6 +10,6 @@ export const getPlant = (id) => {
   .then(res => res.json())
   .then(plant => dispatch({type: "GET_PLANT", payload: plant}))
 }
-// I'm using this instead of mapDispatchToProps, and passing it in thru my connect
+
 
 export const clearPlant = () => ({type:"CLEAR_PLANT"})

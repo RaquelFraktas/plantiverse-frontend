@@ -8,6 +8,7 @@ function PlantShow(props){
   const routeId = useParams().id
 
   const spinner = () => <div className="loader"></div>
+
   const loadedPage= () => <div className="show">
       <h1>this is the show page</h1>
     
@@ -15,7 +16,6 @@ function PlantShow(props){
       <h3>{props.altName}</h3>
       <span className="origin"> {props.origin}</span>
       <p className="description">{props.description}</p>
-    
       <Link to={`/plants/${parseInt(routeId) + 1}`}>Go to next Plant</Link>
     </div>
 
