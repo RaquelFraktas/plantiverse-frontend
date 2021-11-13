@@ -3,6 +3,7 @@ import { getPlants } from "../redux/actionCreators"
 import { connect} from "react-redux"
 import { PlantCard } from '../components/indexExports'
 
+
 function PlantIndex(props){
   useEffect(props.getPlants, [props.getPlants])  
     // this is my componentDidMount

@@ -7,7 +7,7 @@ export const getPlants = () => {
 
 
 export const getPlant = (id) => {
-  return dispatch =>(`http://localhost:3000/plants/${id}`)
+  return dispatch => fetch (`http://localhost:3000/plants/${id}`)
   .then(res => res.json())
   .then(plant => dispatch({type: "GET_PLANT", payload: plant}))
 }
