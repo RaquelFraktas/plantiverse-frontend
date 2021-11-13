@@ -23,6 +23,8 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, selectedPlant: payload};
     case "CLEAR_PLANT":
       return {...state, selectedPlant: initialPlant };
+    case "SET_USER":
+      return {...state, user: payload}
     default:
       return {...state}
   }

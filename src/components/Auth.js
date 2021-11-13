@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 function Auth(props){
 
+  
+
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [signUp, setSignUp] = useState(false)
@@ -13,7 +15,6 @@ function Auth(props){
   const handleSubmit = (e) => {
     e.preventDefault()
     signUp ? props.submitSignUp({username, password}) : props.submitLogin({username, password})
-
   }
 
 
