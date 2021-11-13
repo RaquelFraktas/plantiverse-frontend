@@ -1,5 +1,4 @@
 import React from 'react'
-import { PlantShow } from './indexExports'
 import { Link } from 'react-router-dom'
 
 export default function PlantCard({id, name, altName, imgUrl, description, origin}){

@@ -1,12 +1,14 @@
+const initialPlant ={
+  name: "",
+  altName: "",
+  origin: "",
+  imgUrl: "",
+  description: "",
+}
+
 const initialState = {
   plants: [],
-  selectedPlant: {
-    name: "",
-    altName: "",
-    origin: "",
-    imgUrl: "",
-    description: "",
-  }
+  selectedPlant: initialPlant
 }
 
 export default function reducer(state=initialState, {type, payload}){
@@ -16,6 +18,8 @@ export default function reducer(state=initialState, {type, payload}){
     case "GET_PLANT":
       console.log("individual plant here")
       return {...state, selectedPlant: payload};
+    case "CLEAR_PLANT":
+      return {...state, selectedPlant: initialPlant };
     default:
       return {...state}
   }
