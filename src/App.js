@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { PlantIndex, PlantShow, Navbar } from './components/indexExports'
+import { PlantIndex, PlantShow, Navbar, Auth } from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
