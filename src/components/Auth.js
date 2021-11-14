@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { submitSignUp, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { HomePage } from './indexExports'
-// import { useHistory } from 'react-router-dom'
 
 function Auth(props){
 
@@ -11,8 +10,6 @@ function Auth(props){
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [signUp, setSignUp] = useState(false)
   const [invalidPassword, setInvalidPassword] = useState(false)
-
-  // const history = useHistory()
 
   const toggleSignUp = () => setSignUp(!signUp)
 
