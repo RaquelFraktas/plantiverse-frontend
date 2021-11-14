@@ -1,23 +1,22 @@
 import { useState } from 'react'
 import { submitSignUp, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { HomePage } from './indexExports'
+// import { useHistory } from 'react-router-dom'
 
 function Auth(props){
-
-  
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [signUp, setSignUp] = useState(false)
-  const history = useHistory()
+  // const history = useHistory()
 
   const toggleSignUp = () => setSignUp(!signUp)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     signUp ? props.submitSignUp({username, password}) : props.submitLogin({username, password})
-    history.push("/plants")
+    props.history.push("/plants")
     // sends user to plants page everytime they log in
   }
 
@@ -29,7 +28,7 @@ function Auth(props){
   }
 
   return <>
-
+      <HomePage/>
     {signUp ? <h1> Sign up! </h1> : <h1> Log in! </h1>}
       <form className= "Login" onSubmit={handleSubmit}>
         <label>
