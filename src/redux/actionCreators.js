@@ -23,8 +23,13 @@ export const submitSignUp = (user) =>{
   })
   .then(res =>res.json())
   .then(response => {
+    if(!response.errors){
     localStorage.token = response.token
     dispatch({type: "SET_USER", payload: response.user})
+    } else {
+      dispatch({type: "ERROR", payload: response.errors})
+    }
+
   })
 }
 
@@ -38,8 +43,12 @@ export const submitLogin = (user) =>{
   })
   .then(res =>res.json())
   .then(response => {
-    localStorage.token = response.token
-    dispatch({type: "SET_USER", payload: response.user})
+    if(!response.errors){
+      localStorage.token = response.token
+      dispatch({type: "SET_USER", payload: response.user})
+    } else {
+      dispatch({type: "ERROR", payload: response.errors})
+    }
   })
 }
 export const autoLogin = () => {
@@ -58,15 +67,8 @@ export const autoLogin = () => {
 }
 
 export const logOut = () => {
-  return dispatch => fetch ("http://localhost:3000/logout",{
-    method:'DELETE',
-    headers: {
-      'Content-Type':'application/json',
-    }
-  })
-  .then(() => {
     localStorage.removeItem("token")
-    dispatch({type: "CLEAR_USER"})
-  })
+    return ({type: "CLEAR_USER"})
+  }
 
-}
+

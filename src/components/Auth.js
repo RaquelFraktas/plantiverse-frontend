@@ -17,7 +17,6 @@ function Auth(props){
     e.preventDefault()
     signUp ? props.submitSignUp({username, password}) : props.submitLogin({username, password})
     props.history.push("/plants")
-    // sends user to plants page everytime they log in
   }
 
 
@@ -31,6 +30,9 @@ function Auth(props){
       <HomePage/>
     {signUp ? <h1> Sign up! </h1> : <h1> Log in! </h1>}
       <form className= "Login" onSubmit={handleSubmit}>
+
+      <div className="alert"> {props.errors}</div>
+
         <label>
           Username:
           <input type="text" name="name" value={username} onChange={(e) => setUsername(e.target.value)} />
@@ -50,4 +52,8 @@ function Auth(props){
   </>
 }
 
-export default connect (null, { submitSignUp, submitLogin })(Auth)
+const mapStateToProps= (state)=> {
+  return state
+}
+
+export default connect (mapStateToProps, { submitSignUp, submitLogin })(Auth)
