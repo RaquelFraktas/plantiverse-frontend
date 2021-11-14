@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { submitSignUp, submitLogin } from '../redux/actionCreators'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 function Auth(props){
 
@@ -9,12 +10,15 @@ function Auth(props){
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [signUp, setSignUp] = useState(false)
+  const history = useHistory()
 
   const toggleSignUp = () => setSignUp(!signUp)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     signUp ? props.submitSignUp({username, password}) : props.submitLogin({username, password})
+    history.push("/plants")
+    // sends user to plants page everytime they log in
   }
 
 
