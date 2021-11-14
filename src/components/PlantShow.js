@@ -4,7 +4,7 @@ import { getPlant, clearPlant } from '../redux/actionCreators'
 import { useEffect } from "react"
 import { Link } from 'react-router-dom'
 
-function PlantShow(props){
+function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearPlant, id}){
   const routeId = useParams().id
 
   const spinner = () => <div className="loader"></div>
@@ -12,21 +12,21 @@ function PlantShow(props){
   const loadedPage= () => <div className="show">
       <h1>this is the show page</h1>
     
-      <img src={props.imgUrl} alt={props.name}/>
-      <h3>{props.altName}</h3>
-      <span className="origin"> {props.origin}</span>
-      <p className="description">{props.description}</p>
+      <img src={imgUrl} alt={name}/>
+      <h3>{altName}</h3>
+      <span className="origin"> {origin}</span>
+      <p className="description">{description}</p>
       <Link to={`/plants/${parseInt(routeId) + 1}`}>Go to next Plant</Link>
     </div>
 
   useEffect(() => {
-    props.getPlant(routeId)
+    getPlant(routeId)
     //returning a function is run when unmounting.
-    return props.clearPlant
-  }, [props.getPlant, routeId])    
+    return clearPlant()
+  }, [getPlant, routeId, clearPlant])    
 
 
-  return props.id ? loadedPage() : spinner()
+  return id ? loadedPage() : spinner()
   
 
 }

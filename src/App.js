@@ -8,22 +8,22 @@ import { autoLogin, logOut } from './redux/actionCreators'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-function App(props) {
+function App({user, autoLogin, logOut}) {
   const history = useHistory()
-  console.log(props.user)
+  console.log(user)
 
-  useEffect(() => localStorage.token && props.autoLogin(),[props.autoLogin])
+  useEffect(() => localStorage.token && autoLogin(),[autoLogin])
   
   const handleLogout = (e) => {
     e.preventDefault();
-    props.logOut()
+    logOut()
     history.push("/")
   }
 
   return (
     <>
     <Navbar/>
-    { props.user.username ? 
+    { user.username ? 
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
         <Route path="/plants"> <PlantIndex/> </Route>
