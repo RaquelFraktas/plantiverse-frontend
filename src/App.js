@@ -3,9 +3,14 @@ import './App.css';
 import { PlantIndex, PlantShow, Navbar, Auth } from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { useEffect } from 'react'
+import { autoLogin } from './redux/actionCreators'
 
 function App(props) {
-  console.log(props)
+  console.log(localStorage.token)
+  
+  useEffect(() => localStorage.token && props.autoLogin(),[props.autoLogin])
+
   return (
     <>
     <Navbar/>
@@ -26,4 +31,4 @@ const mapStateToProps = (state)=> {
 
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {autoLogin})(App);

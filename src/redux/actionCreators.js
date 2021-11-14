@@ -42,3 +42,17 @@ export const submitLogin = (user) =>{
     dispatch({type: "SET_USER", payload: response.user})
   })
 }
+export const autoLogin = () => {
+  return dispatch => fetch ("http://localhost:3000/me",{
+    headers: {
+      'Authorization' : localStorage.token
+      // this is the token i am sending over to the backend. we can grab this data as request.headers["Authorization"]
+      //on our backend
+    }
+  })
+  .then(res => res.json())
+  .then(response => {
+    localStorage.token = response.token
+    dispatch({type: "SET_USER", payload: response.user})
+  })
+}
