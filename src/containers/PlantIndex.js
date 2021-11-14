@@ -4,12 +4,12 @@ import { connect} from "react-redux"
 import { PlantCard } from '../components/indexExports'
 
 
-function PlantIndex(props){
-  useEffect(props.getPlants, [props.getPlants])  
+function PlantIndex({plants, getPlants}){
+  useEffect(getPlants, [getPlants])  
     // this is my componentDidMount
 
   return <div className="cards">
-      {props.plants.map(plant => <PlantCard {...plant} key={plant.id}/>)}
+      {plants.map(plant => <PlantCard {...plant} key={plant.id}/>)}
   </div>
 }
 
