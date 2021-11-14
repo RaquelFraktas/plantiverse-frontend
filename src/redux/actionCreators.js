@@ -51,6 +51,7 @@ export const submitLogin = (user) =>{
     }
   })
 }
+
 export const autoLogin = () => {
   return dispatch => fetch ("http://localhost:3000/me",{
     headers: {
@@ -71,4 +72,4 @@ export const logOut = () => {
     return ({type: "CLEAR_USER"})
   }
 
-
+export const clearErrors = () => ({type:"CLEAR_ERROR"})

@@ -31,6 +31,8 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, user: initialUser};
     case "ERROR":
       return {...state, errors: payload}
+    case "CLEAR_ERROR":
+      return {...state, errors: ""}
     default:
       return {...state}
   }

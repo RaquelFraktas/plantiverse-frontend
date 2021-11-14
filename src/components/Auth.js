@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { submitSignUp, submitLogin } from '../redux/actionCreators'
+import { submitSignUp, submitLogin, clearErrors } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 import { HomePage } from './indexExports'
 
@@ -21,7 +21,7 @@ function Auth(props){
 
   const validForSignUp =() =>!invalidPassword && props.submitSignUp({username, password})
   
-  useEffect(()=> password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false) ) 
+  useEffect(()=> password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)) 
   
   return <>
       <HomePage/>
@@ -38,7 +38,7 @@ function Auth(props){
           Password:
           <input type="password" name="password" value={password} onChange={(e) =>setPassword(e.target.value)} />
         </label>
-        {signUp && <label>
+        {signUp && props.clearErrors() && <label>
           Confirm Password:
           <input type="password" name="password-conf" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
           <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
@@ -54,4 +54,4 @@ const mapStateToProps= (state)=> {
   return state
 }
 
-export default connect (mapStateToProps, { submitSignUp, submitLogin })(Auth)
+export default connect (mapStateToProps, { submitSignUp, submitLogin , clearErrors})(Auth)
