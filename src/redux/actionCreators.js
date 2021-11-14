@@ -56,3 +56,17 @@ export const autoLogin = () => {
     dispatch({type: "SET_USER", payload: response.user})
   })
 }
+
+export const logOut = () => {
+  return dispatch => fetch ("http://localhost:3000/logout",{
+    method:'DELETE',
+    headers: {
+      'Content-Type':'application/json',
+    }
+  })
+  .then(() => {
+    localStorage.removeItem("token")
+    dispatch({type: "CLEAR_USER"})
+  })
+
+}

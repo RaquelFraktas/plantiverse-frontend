@@ -6,13 +6,14 @@ const initialPlant ={
   description: "",
 }
 
+const initialUser ={
+  username: "",
+}
 
 const initialState = {
   plants: [],
   selectedPlant: initialPlant,
-  user: {
-    username: ""
-  }
+  user: initialUser,
 }
 
 export default function reducer(state=initialState, {type, payload}){
@@ -24,7 +25,9 @@ export default function reducer(state=initialState, {type, payload}){
     case "CLEAR_PLANT":
       return {...state, selectedPlant: initialPlant };
     case "SET_USER":
-      return {...state, user: payload}
+      return {...state, user: payload};
+    case "CLEAR_USER":
+      return {...state, user: initialUser};
     default:
       return {...state}
   }
