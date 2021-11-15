@@ -7,17 +7,17 @@ export default function PlantCard({id, name, altName, imgUrl, description, origi
   
   const [isHovered, setHover] = useState(false);
 
-  // const handleMouseHover = () =>{
-  //   <button>{"Add to plant collection"}</button>
+  const handleAddToCollection = (e) =>{
+    e.preventDefault()
 
-  // }
+  }
 
-  return <div className="card"       
-    onMouseOver={() => setHover(true)}
-    onMouseLeave={() => setHover(false)}>
-      <Image src={imgUrl} alt={name}/>
+  return <div className="card">
+      <Image src={imgUrl} alt={name} className="imgCard"
+      onMouseOver={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}/>
       {isHovered && (
-        <Button variant="primary">Add Plant to Collection</Button>)}
+        <Button className="addPlantButton" variant="primary">Add Plant to Collection</Button>)}
 
         <Link to={`/plants/${id}`}> <h2>{name}</h2> </ Link>
         <h3>{altName}</h3>

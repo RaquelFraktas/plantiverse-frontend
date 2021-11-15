@@ -73,3 +73,8 @@ export const logOut = () => {
   }
 
 export const clearErrors = () => ({type:"CLEAR_ERROR"})
+
+export const addPlantToUser = (userId,plant) =>{
+  return dispatch =>  fetch (`http://localhost:3000/users/${userId}`)
+
+}

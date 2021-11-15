@@ -57,3 +57,42 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.card {
+  position: relative;
+}
+
+.imgCard {
+  position: relative;
+  z-index: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  display: block;    
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+ 
+}
+
+.imgCard:hover {
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  opacity: 1;
+}
+
+.addPlantButton{
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  height: 50px;
+  /* transition: opacity .2s, visibility .2s; */
+}
+
+.addPlantButton:hover {
+  background-color: #4CAF50;
+}
