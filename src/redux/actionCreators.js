@@ -80,12 +80,12 @@ export const addPlantToUser = ([user,id]) =>{
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
+      'Accept': 'application/json'
     },
-    body: JSON.stringify(user,id),
+    body: JSON.stringify([user,id]),
   })
   .then(res =>res.json())
   .then(response => {
-    // dispatch({type: "ADD_PLANT_TO_USER", payload: response})
-   console.log(response)
+    dispatch({type: "ADD_PLANT_TO_USER", payload: response.plants})
   })
 }

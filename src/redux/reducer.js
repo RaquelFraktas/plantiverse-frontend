@@ -14,6 +14,7 @@ const initialState = {
   plants: [],
   selectedPlant: initialPlant,
   user: initialUser,
+  user_plants: [],
   errors:"",
 }
 
@@ -29,6 +30,8 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, user: payload};
     case "CLEAR_USER":
       return {...state, user: initialUser};
+    case "ADD_PLANT_TO_USER":
+      return {...state, user_plants: payload};
     case "ERROR":
       return {...state, errors: payload}
     case "CLEAR_ERROR":
