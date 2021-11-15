@@ -21,7 +21,7 @@ function Auth(props){
 
   const validForSignUp =() =>!invalidPassword && props.submitSignUp({username, password})
   
-  useEffect(()=> password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)) 
+  useEffect(()=> {password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)}, [password, passwordConfirmation,]) 
   
   return <>
       <HomePage/>
@@ -38,7 +38,7 @@ function Auth(props){
           Password:
           <input type="password" name="password" value={password} onChange={(e) =>setPassword(e.target.value)} />
         </label>
-        {signUp && props.clearErrors() && <label>
+        {signUp && <label>
           Confirm Password:
           <input type="password" name="password-conf" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
           <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
@@ -55,3 +55,5 @@ const mapStateToProps= (state)=> {
 }
 
 export default connect (mapStateToProps, { submitSignUp, submitLogin , clearErrors})(Auth)
+
+//figure out where to put && props.clearErrors() 

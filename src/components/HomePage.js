@@ -1,7 +1,7 @@
 export default function HomePageShow() {
 
-    return <>
-      Welcome to the site
-    </>
+    return <div className="homepage">
+      Welcome to the site! Use the Navigation to browse 
+    </div>
   
   }
