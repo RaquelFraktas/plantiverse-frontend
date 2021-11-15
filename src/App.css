@@ -79,7 +79,7 @@
 .imgCard:hover {
   -webkit-filter: blur(2px);
   filter: blur(2px);
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .addPlantButton{
