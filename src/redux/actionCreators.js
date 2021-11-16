@@ -89,3 +89,11 @@ export const addPlantToUser = ([user,id]) =>{
     dispatch({type: "ADD_PLANT_TO_USER", payload: response.plants})
   })
 }
+
+// export const getUser = (id) => {
+//   return dispatch => fetch (`http://localhost:3000/users/${id}`)
+//   .then(res => res.json())
+//   .then(user => dispatch({type: "GET_USER", payload: user}))
+// }
+
+export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})

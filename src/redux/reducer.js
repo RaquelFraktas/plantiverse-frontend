@@ -10,12 +10,18 @@ const initialUser ={
   username: "",
 }
 
+const initialUserToView ={
+  username:"",
+  plants: ""
+}
+
 const initialState = {
   plants: [],
   selectedPlant: initialPlant,
   user: initialUser,
-  user_plants: [],
+  userPlants: [],
   errors:"",
+  // userView: initialUserToView
 }
 
 export default function reducer(state=initialState, {type, payload}){
@@ -28,10 +34,14 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, selectedPlant: initialPlant };
     case "SET_USER":
       return {...state, user: payload};
+    // case "GET_USER":
+    //   return {...state, userView: payload };
     case "CLEAR_USER":
       return {...state, user: initialUser};
+    case "CLEAR_USER_SHOW":
+      return {...state, userView: initialUserToView};
     case "ADD_PLANT_TO_USER":
-      return {...state, user_plants: payload};
+      return {...state, userPlants: payload};
     case "ERROR":
       return {...state, errors: payload}
     case "CLEAR_ERROR":

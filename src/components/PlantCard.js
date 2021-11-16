@@ -12,6 +12,7 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
   const handleAddPlantToCollection = (e) =>{
     e.preventDefault()
     addPlantToUser([user, id])
+    //how to update the user_plants array state in our program?
   }
 
   return (
