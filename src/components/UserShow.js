@@ -8,10 +8,9 @@ function UserShow({selectedUser, getUser}){
   const routeId = useParams().id
 
   useEffect(() => {
-    console.log("hello")
     getUser(routeId)
     return clearUserShow
-  }, [getUser, clearUserShow, routeId])
+  }, [getUser, routeId])
 
   const spinner = () => <div className="loader"></div>
 

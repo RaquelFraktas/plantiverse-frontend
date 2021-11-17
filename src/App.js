@@ -18,6 +18,7 @@ function App({user, autoLogin, logOut}) {
     e.preventDefault();
     logOut()
     history.push("/")
+    // can do the redirect in my action creator, as long as history is passed in logout
   }
 
   return (

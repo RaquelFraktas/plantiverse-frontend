@@ -16,7 +16,7 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
   }
 
   return (
-    <div className="card" 
+    <div className="plantCard" 
     onMouseOver={() => setHover(true)} 
     onMouseLeave={() => setHover(false)}>
       <Image src={imgUrl} alt={name} className="imgCard"/>
