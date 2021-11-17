@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 function App({user, autoLogin, logOut}) {
   const history = useHistory()
-  console.log(user)
+  // console.log(user)
 
   useEffect(() => localStorage.token && autoLogin(),[autoLogin])
   
@@ -28,9 +28,9 @@ function App({user, autoLogin, logOut}) {
         <Route path="/plants/:id"> <PlantShow/> </Route> 
         <Route path="/plants"> <PlantIndex/> </Route>
         <Route path="/users/:id"> <UserShow/> </Route>
-        <Route exact path="/"><HomePage user= {user} /></Route>
+        <Route exact path="/"><HomePage /></Route>
       </Switch> :
-      <Auth history= {history}/>
+      <Auth />
     }
 
     <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>

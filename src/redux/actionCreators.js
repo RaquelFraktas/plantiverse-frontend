@@ -90,10 +90,10 @@ export const addPlantToUser = ([user,id]) =>{
   })
 }
 
-// export const getUser = (id) => {
-//   return dispatch => fetch (`http://localhost:3000/users/${id}`)
-//   .then(res => res.json())
-//   .then(user => dispatch({type: "GET_USER", payload: user}))
-// }
+export const getUser = (id) => {
+  return dispatch => fetch (`http://localhost:3000/users/${id}`)
+  .then(res => res.json())
+  .then(user => dispatch({type: "GET_USER", payload: user}))
+}
 
 export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})

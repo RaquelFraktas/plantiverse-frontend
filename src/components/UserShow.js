@@ -1,22 +1,36 @@
+import { useEffect } from "react"
 import { connect } from 'react-redux'
-import { clearUserShow } from '../redux/actionCreators'
+import { Link, useParams } from 'react-router-dom'
+import { clearUserShow, getUser } from '../redux/actionCreators'
 
-function UserShow({user, clearUserShow}){
+function UserShow({selectedUser, getUser}){
 
-    console.log("user to view", user)
-    // useEffect(() => {
-    //     getUser(userView.id)
-    //     //returning a function is run when unmounting.
-    //     return clearUserShow()
-    //   }, [getUser, clearUserShow])  
+  const routeId = useParams().id
 
-  return <div className="userShow">
-    These are your plants
+  useEffect(() => {
+    console.log("hello")
+    getUser(routeId)
+    return clearUserShow
+  }, [getUser, clearUserShow, routeId])
+
+  const spinner = () => <div className="loader"></div>
+
+  const loadedPage= () => <div className="userShow">
+    <p>This is in {selectedUser.username}'s' plant collection</p>
+      <ul className="usersPlantCollection">
+          {selectedUser.plants.map(plant => 
+            <li key={plant.id}>
+                <Link to={`/plants/${plant.id}`}> {plant.name} </ Link>
+            </li> 
+          )}
+      </ul>
   </div>
+
+  return selectedUser.id ? loadedPage() : spinner()  
 }
 
-const mapStateToProps = (state) =>{
-    console.log(state)
-    return {...state}
-}
-export default connect (mapStateToProps, { clearUserShow })(UserShow)
+const mapStateToProps = (state) =>({
+  selectedUser: state.selectedUser
+})
+
+export default connect (mapStateToProps, { clearUserShow, getUser })(UserShow)

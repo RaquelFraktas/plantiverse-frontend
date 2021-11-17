@@ -1,30 +1,39 @@
 import { useEffect, useState } from 'react'
 import { submitSignUp, submitLogin, clearErrors } from '../redux/actionCreators'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { HomePage } from './indexExports'
 
 function Auth(props){
-
+  const history = useHistory()
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [passwordConfirmation, setPasswordConfirmation] = useState("")
   const [signUp, setSignUp] = useState(false)
   const [invalidPassword, setInvalidPassword] = useState(false)
 
-  const toggleSignUp = () => setSignUp(!signUp)
+  const toggleSignUp = () => {
+    setSignUp(!signUp)
+    props.clearErrors()
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     signUp ? validForSignUp() : props.submitLogin({username, password})
-    props.history.push("/plants")
+    history.push(`/`)
   }
 
   const validForSignUp =() =>!invalidPassword && props.submitSignUp({username, password})
   
-  useEffect(()=> {password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)}, [password, passwordConfirmation,]) 
+  useEffect(()=> {
+    password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)
+    return props.user
+  }, [password, passwordConfirmation, props.user]) 
   
+
   return <>
-      <HomePage/>
+    <HomePage/>
+
     {signUp ? <h1> Sign up! </h1> : <h1> Log in! </h1>}
       <form className= "Login" onSubmit={handleSubmit}>
 
@@ -56,4 +65,3 @@ const mapStateToProps= (state)=> {
 
 export default connect (mapStateToProps, { submitSignUp, submitLogin , clearErrors})(Auth)
 
-//figure out where to put && props.clearErrors() 
