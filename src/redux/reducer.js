@@ -8,12 +8,13 @@ const initialPlant ={
 
 const initialUser ={
   username: "",
-}
-
-const initialUserToView ={
-  username:"",
   plants: []
 }
+
+// const initialUserToView ={
+//   username:"",
+//   plants: []
+// }
 
 const initialState = {
   plants: [],
@@ -21,7 +22,8 @@ const initialState = {
   user: initialUser,
   userPlants: [],
   errors:"",
-  selectedUser: initialUserToView,
+  selectedUser: initialUser,
+  forum_topics: [],
 }
 
 export default function reducer(state=initialState, {type, payload}){
@@ -39,9 +41,11 @@ export default function reducer(state=initialState, {type, payload}){
     case "CLEAR_USER":
       return {...state, user: initialUser};
     case "CLEAR_USER_SHOW":
-      return {...state, slectedUser: initialUserToView};
+      return {...state, slectedUser: initialUser};
     case "ADD_PLANT_TO_USER":
       return {...state, userPlants: payload};
+    case "GET_FORUM_TOPICS":
+      return {...state, forum_topics: payload}
     case "ERROR":
       return {...state, errors: payload}
     case "CLEAR_ERROR":

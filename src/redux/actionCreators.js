@@ -29,7 +29,6 @@ export const submitSignUp = (user) =>{
     } else {
       dispatch({type: "ERROR", payload: response.errors})
     }
-
   })
 }
 
@@ -97,3 +96,9 @@ export const getUser = (id) => {
 }
 
 export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})
+
+export const getForumTopics = () => {
+  return dispatch => fetch("http://localhost:3000/message_boards")
+  .then(res => res.json())
+  .then(forum_topics => dispatch({type: "GET_FORUM_TOPICS", payload: forum_topics})
+)} 
