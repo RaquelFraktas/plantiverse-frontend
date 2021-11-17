@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow } from './components/indexExports'
+import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex } from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
@@ -27,7 +27,10 @@ function App({user, autoLogin, logOut}) {
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
         <Route path="/plants"> <PlantIndex/> </Route>
+        <Route path="/message_boards/"> <ForumIndex/> </Route>
         <Route path="/users/:id"> <UserShow/> </Route>
+        {/* <Route path="/message_boards/:id"> <ForumShow/> </Route> */}
+        
         <Route exact path="/"><HomePage /></Route>
       </Switch> :
       <Auth />
