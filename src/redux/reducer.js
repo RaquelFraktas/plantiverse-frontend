@@ -11,6 +11,11 @@ const initialUser ={
   plants: []
 }
 
+const initialTopic ={
+  title: "",
+  content: "",
+  imgUrl: ""
+}
 // const initialUserToView ={
 //   username:"",
 //   plants: []
@@ -23,7 +28,9 @@ const initialState = {
   userPlants: [],
   errors:"",
   selectedUser: initialUser,
-  forum_topics: [],
+  forumTopics: [],
+  selectedTopic: initialTopic,
+  forumTopic: initialTopic,
 }
 
 export default function reducer(state=initialState, {type, payload}){
