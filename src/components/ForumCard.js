@@ -5,10 +5,11 @@ function ForumCard () {
 
   return (
     <div className="forumCard" >
-      
+      Hello
+{/*       
         <Link to={`/message_boards/${id}`}> <h2>{title}</h2> </ Link>
         <h3>{altName}</h3>
-        <span className="origin"> {origin}</span>
+        <span className="origin"> {origin}</span> */}
 
   </div>
   )

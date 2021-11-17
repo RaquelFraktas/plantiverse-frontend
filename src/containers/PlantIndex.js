@@ -8,7 +8,7 @@ function PlantIndex({plants, getPlants}){
   useEffect(getPlants, [getPlants])  
     // this is my componentDidMount
 
-  return <div className="cards">
+  return <div className="plantCards">
       {plants.map(plant => <PlantCard {...plant} key={plant.id}/>)}
   </div>
 }
