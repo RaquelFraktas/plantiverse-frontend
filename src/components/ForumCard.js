@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-function ForumCard () {
+function ForumCard (props) {
+  console.log(props)
 
   return (
     <div className="forumCard" >
       Hello from forum card
       
-        {/* <Link to={`/message_boards/${id}`}> <h2>{title}</h2> </ Link>
-        <h3>{altName}</h3>
-        <span className="origin"> {origin}</span> */}
+        <Link to={`/message_boards/${props.id}`}> <h2>{props.title}</h2> </ Link>
 
   </div>
   )
@@ -18,7 +18,7 @@ function ForumCard () {
 }
 
 const mapStateToProps =(state) => {
-    return {forum_card: state.forumCard}
+    return {...state}
 }
 
 export default connect (mapStateToProps)(ForumCard)

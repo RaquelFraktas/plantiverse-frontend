@@ -6,7 +6,6 @@ import { ForumCard } from '../components/indexExports'
 function ForumIndex({postForumTopic, getForumTopics, forumTopics, user}) {
   useEffect(getForumTopics, [getForumTopics]) 
   
-
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [imgUrl, setImgUrl] = useState("")
@@ -35,11 +34,11 @@ function ForumIndex({postForumTopic, getForumTopics, forumTopics, user}) {
     </form>
   </div>
 
-
+console.log(forumTopics)
   return <>
     {createNewDiscussion()}
       <div className="messageBoardCards">
-        HELLOOOO
+       Check out the discussions below
       {forumTopics.map(topic => <ForumCard {...topic} key={topic.id}/>)}
   </div>
   </>
@@ -47,6 +46,7 @@ function ForumIndex({postForumTopic, getForumTopics, forumTopics, user}) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.forumTopics)
   return {forumTopics: state.forumTopics, user:state.user}
 }
 
