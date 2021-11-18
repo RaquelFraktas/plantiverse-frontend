@@ -3,16 +3,17 @@ import { connect } from 'react-redux'
 import { getForumTopics, postForumTopic } from "../redux/actionCreators"
 import { ForumCard } from '../components/indexExports'
 
-function ForumIndex({forumTopics}) {
+function ForumIndex({postForumTopic, getForumTopics, forumTopics, user}) {
   useEffect(getForumTopics, [getForumTopics]) 
   
+
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
-  const [picUrl, setPicUrl] = useState("")
+  const [imgUrl, setImgUrl] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    postForumTopic({title, content , picUrl})
+    postForumTopic({title, content , imgUrl, author: user})
     // history.push(`/`)
   }
 
@@ -28,7 +29,7 @@ function ForumIndex({forumTopics}) {
       </label>
       <label>
         Submit a Picture URL:
-        <input type="text" name="pictureUrl" value={picUrl} onChange={(e) => setPicUrl(e.target.value)}/>
+        <input type="text" name="pictureUrl" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)}/>
       </label>
       <input type="submit" value="Submit" />
     </form>
@@ -46,7 +47,7 @@ function ForumIndex({forumTopics}) {
 }
 
 const mapStateToProps = (state) => {
-  return {forumTopics: state.forumTopics}
+  return {forumTopics: state.forumTopics, user:state.user}
 }
 
 export default connect(mapStateToProps, {getForumTopics, postForumTopic})(ForumIndex)

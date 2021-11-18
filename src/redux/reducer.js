@@ -14,7 +14,8 @@ const initialUser ={
 const initialTopic ={
   title: "",
   content: "",
-  imgUrl: ""
+  imgUrl: "",
+  author: "",
 }
 // const initialUserToView ={
 //   username:"",
@@ -29,7 +30,7 @@ const initialState = {
   errors:"",
   selectedUser: initialUser,
   forumTopics: [],
-  selectedTopic: initialTopic,
+  // selectedTopic: initialTopic,
   forumTopic: initialTopic,
 }
 
@@ -51,6 +52,8 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, slectedUser: initialUser};
     case "ADD_PLANT_TO_USER":
       return {...state, userPlants: payload};
+    case "FORUM_TOPIC":
+      return {...state, forum_topic: payload}
     case "GET_FORUM_TOPICS":
       return {...state, forum_topics: payload}
     case "ERROR":

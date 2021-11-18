@@ -100,17 +100,23 @@ export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})
 export const getForumTopics = () => {
   return dispatch => fetch("http://localhost:3000/message_boards")
   .then(res => res.json())
-  .then(forumTopics => {dispatch({type: "GET_FORUM_TOPICS", payload: forumTopics})}
+  .then(forumTopics => {dispatch({type: "GET_FORUM_TOPICS", payload: forumTopics})
+  }
 )} 
 //////it was saying dispatch was not a function
 
-export const postForumTopic = (forumTopic) => {
-  return dispatch => fetch ("http://localhost:3000/message_boards", {
+export const postForumTopic = (forumTopic,) => {
+  return dispatch => fetch("http://localhost:3000/message_boards", {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
     },
-    body: JSON.stringify(forumTopic),
+    body: JSON.stringify({
+      title: forumTopic.title,
+      content: forumTopic.content,
+      img_url: forumTopic.imgUrl,
+      user_id: forumTopic.author.id
+    }),
   })
   .then(res =>res.json())
   .then(response => {
