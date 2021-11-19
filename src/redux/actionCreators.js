@@ -136,3 +136,24 @@ export const postForumTopic = (forumTopic, history) => {
 }
 
 export const clearForumTopic = () => ({type:"CLEAR_FORUM_TOPIC"})
+
+export const postComment = (content,forumTopicId, currentUserId) => {
+  console.log(content, forumTopicId, currentUserId)
+  return dispatch => fetch(`http://localhost:3000/message_boards/${forumTopicId}/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type' : 'application/json',
+      // 'Authorization': localStorage.token
+    },
+    body: JSON.stringify({
+      content: content,
+      user_id: currentUserId,
+      forum_topic_id: forumTopicId
+    }),
+  })
+  .then(res =>res.json())
+  .then(comment => {
+    // console.log(comment)
+    dispatch({type: "POST_COMMENT", payload: {comment}})
+  })
+}

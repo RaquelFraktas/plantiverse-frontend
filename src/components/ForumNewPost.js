@@ -14,7 +14,6 @@ function ForumNewPost ({postForumTopic, user}) {
   const handleSubmit = (e) => {
     e.preventDefault()
     postForumTopic({title, content , imgUrl, author: user}, history)  
-
   }
 
   const createNewDiscussion = () => <div className ="createDiscussion">

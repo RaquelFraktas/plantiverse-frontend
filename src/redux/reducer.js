@@ -16,14 +16,15 @@ const initialTopic ={
   content: "",
   imgUrl: "",
   author: "",
-  id: ""
+  id: "",
+  comments: []
 }
 
 const initialState = {
   plants: [],
   selectedPlant: initialPlant,
   user: initialUser,
-  userPlants: [],
+  // userPlants: [],
   errors:"",
   selectedUser: initialUser,
   forumTopics: [],
@@ -57,6 +58,9 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, forumTopics: payload}
     case "CLEAR_FORUM_TOPIC":
       return {...state, forumTopic: initialTopic};
+    case "POST_COMMENT":
+      console.log({payload})
+      return {...state, forumTopic: {...state.forumTopic, comments:[...state.forumTopic.comments, payload]}};
     case "ERROR":
       return {...state, errors: payload}
     case "CLEAR_ERROR":

@@ -52,13 +52,13 @@
   100% { transform: rotate(360deg); }
 }
 
-.cards {
+.plantCards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.card {
+.plantCard {
   position: relative;
 }
 

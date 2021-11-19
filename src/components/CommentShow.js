@@ -1,11 +1,18 @@
 import { connect } from 'react-redux'
 
-function CommentShow(){
+function CommentShow({content, user}){
 
     return <div className="commentShow">
-        this is a comment show
+      {content}
+      {/* by {user.username} */}
     </div>
 
 }
 
-export default connect(null)(CommentShow)
+const mapStateToProps = (state) => {
+    console.log({...state.forumTopic.comments})
+  return {...state.forumTopic.comments }
+
+}
+
+export default connect(mapStateToProps)(CommentShow)
