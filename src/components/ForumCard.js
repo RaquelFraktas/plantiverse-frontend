@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function ForumCard (props) {
-  console.log(props)
 
   return (
     <div className="forumCard" >

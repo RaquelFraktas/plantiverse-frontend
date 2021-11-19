@@ -108,14 +108,18 @@ export const getForumTopics = () => {
 export const getForumTopic = (id) => {
   return dispatch => fetch (`http://localhost:3000/message_boards/${id}`)
   .then(res => res.json())
-  .then(forumTopic => dispatch({type: "FORUM_TOPIC", payload: forumTopic}))
+  .then((forumTopic) => {
+    dispatch({type: "GET_FORUM_TOPIC", payload: forumTopic})
+  })
 }
 
-export const postForumTopic = (forumTopic) => {
+export const postForumTopic = (forumTopic, history) => {
+  console.log(history)
   return dispatch => fetch("http://localhost:3000/message_boards", {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
+      'Authorization': localStorage.token
     },
     body: JSON.stringify({
       title: forumTopic.title,
@@ -126,8 +130,8 @@ export const postForumTopic = (forumTopic) => {
   })
   .then(res =>res.json())
   .then(response => {
-    dispatch({type: "FORUM_TOPIC", payload: response.forumTopic})
-    //add a redirect to the page 
+    // history.push('/message_boards/',response.forum_topic.id)
+    dispatch({type: "POST_FORUM_TOPIC", payload: response.forum_topic})
   })
 }
 

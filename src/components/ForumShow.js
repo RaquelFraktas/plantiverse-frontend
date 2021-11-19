@@ -4,7 +4,7 @@ import { getForumTopic, clearForumTopic } from "../redux/actionCreators"
 import { Link } from 'react-router-dom'
 import { useEffect } from "react"
 
-function ForumShow({title, content, imgUrl, user, getForumTopic, clearForumTopic, id}) {
+function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumTopic}) {
   const routeId = useParams().id
   const spinner = () => <div className="loader"></div>
 
@@ -19,7 +19,7 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, clearForumTopic
     <Link to={`/message_boards/${parseInt(routeId) + 1}`}>Go to next Topic</Link>
   </div>
 
-useEffect(() => {
+  useEffect(() => {
     getForumTopic(routeId)
     return clearForumTopic()
   }, [getForumTopic, routeId, clearForumTopic]) 
@@ -30,8 +30,8 @@ useEffect(() => {
 }
 
 const mapStateToProps= (state)=> {
-    console.log({...state.forumTopic})
+    // console.log({...state.forumTopic})
     return {...state.forumTopic}
 }
 
-export default connect(mapStateToProps, {getForumTopic, clearForumTopic})(ForumShow)
+export default connect(mapStateToProps, { getForumTopic, clearForumTopic})(ForumShow)
