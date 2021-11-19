@@ -114,7 +114,7 @@ export const getForumTopic = (id) => {
 }
 
 export const postForumTopic = (forumTopic, history) => {
-  console.log(history)
+  // console.log(history)
   return dispatch => fetch("http://localhost:3000/message_boards", {
     method: 'POST',
     headers: {

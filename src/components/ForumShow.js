@@ -3,6 +3,7 @@ import { useParams} from 'react-router-dom'
 import { getForumTopic, clearForumTopic } from "../redux/actionCreators"
 import { Link } from 'react-router-dom'
 import { useEffect } from "react"
+import { CommentIndex } from "./indexExports"
 
 function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumTopic}) {
   const routeId = useParams().id
@@ -16,6 +17,8 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
       by {user.username}
       {/* why cant i change it to author in my program? its initial state is author, but them automatically changes to user */}
     <p className="content">{content}</p>
+
+    <CommentIndex />
     <Link to={`/message_boards/${parseInt(routeId) + 1}`}>Go to next Topic</Link>
   </div>
 
@@ -30,7 +33,6 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
 }
 
 const mapStateToProps= (state)=> {
-    // console.log({...state.forumTopic})
     return {...state.forumTopic}
 }
 
