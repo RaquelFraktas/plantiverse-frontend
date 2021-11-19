@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { clearUserShow, getUser } from '../redux/actionCreators'
 
-function UserShow({selectedUser, getUser}){
+function UserShow({selectedUser, getUser, clearUserShow}){
 
   const routeId = useParams().id
 
   useEffect(() => {
     getUser(routeId)
-    return clearUserShow
-  }, [getUser, routeId])
+    return clearUserShow()
+  }, [getUser, routeId, clearUserShow])
 
   const spinner = () => <div className="loader"></div>
 

@@ -44,7 +44,7 @@ export default function reducer(state=initialState, {type, payload}){
       return {...state, user: payload};
     case "GET_USER":
       return {...state, selectedUser: payload };
-    case "CLEAR_USER":
+    case "LOGOUT":
       return {...state, user: initialUser};
     case "CLEAR_USER_SHOW":
       return {...state, selectedUser: initialUser};

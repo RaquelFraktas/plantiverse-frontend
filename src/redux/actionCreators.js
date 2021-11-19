@@ -68,7 +68,7 @@ export const autoLogin = () => {
 
 export const logOut = () => {
     localStorage.removeItem("token")
-    return ({type: "CLEAR_USER"})
+    return ({type: "LOGOUT"})
   }
 
 export const clearErrors = () => ({type:"CLEAR_ERROR"})
