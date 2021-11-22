@@ -1,50 +1,32 @@
 import * as React from 'react'
+import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
-import { useEffect, useState } from 'react'
-import { submitSignUp, submitLogin, clearErrors } from '../redux/actionCreators'
-import { connect } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { HomePage } from './indexExports'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
 
+function Auth() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
 
-function Auth(props){
-  const history = useHistory()
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [passwordConfirmation, setPasswordConfirmation] = useState("")
-  const [signUp, setSignUp] = useState(false)
-  const [invalidPassword, setInvalidPassword] = useState(false)
-
-  const toggleSignUp = () => {
-    setSignUp(!signUp)
-    props.clearErrors()
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    signUp ? validForSignUp() : props.submitLogin({username, password})
-    history.push(`/`)
-  }
-
-  const validForSignUp =() =>!invalidPassword && props.submitSignUp({username, password})
-  
-  useEffect(()=> {
-    password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)
-    return props.user
-  }, [password, passwordConfirmation, props.user]) 
-  
-
-  return <>
-    <HomePage/>    
+  return (
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="alert"> {props.errors}</div>
         <Box
@@ -55,9 +37,8 @@ function Auth(props){
             alignItems: 'center',
           }}
         >
-          Hello! In order to access the site, you must have an account with us.
           <Typography component="h1" variant="h5">
-          {signUp ? <h1> Sign up! </h1> : <h1> Log in! </h1>}
+            Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
@@ -81,28 +62,26 @@ function Auth(props){
               id="password"
               value={password} onChange={(e) =>setPassword(e.target.value)}
             />
-            {signUp && <div className="passwordConf">
+            {signUp && 
             <TextField
               margin="normal"
               required
               fullWidth
               name="password-conf"
-              label="Confirm Password"
+              label="Password Verification"
               type="password"
               id="password-conf"
-              value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}>
-            </ TextField>
-            <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
-            </div>
+              value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}
+            />
             }
-          
+          <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Submit
+              Sign In
             </Button>
             <Grid container>
               <Grid item>
@@ -111,12 +90,6 @@ function Auth(props){
             </Grid>
           </Box>
         </Box>
-  </>
+    </ThemeProvider>
+  );
 }
-
-const mapStateToProps= (state)=> {
-  return state
-}
-
-export default connect (mapStateToProps, { submitSignUp, submitLogin , clearErrors})(Auth)
-

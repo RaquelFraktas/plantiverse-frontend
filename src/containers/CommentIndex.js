@@ -9,8 +9,8 @@ function CommentIndex({comments, user}) {
   const routeId = useParams().id
   useEffect(() => {
     getComments(routeId)
-    return clearComments(), 
-    [getComments, routeId]}) 
+    return clearComments()
+    },[routeId]) 
 
   console.log("from index", comments)
 
