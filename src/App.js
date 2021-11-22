@@ -24,6 +24,7 @@ function App({user, autoLogin, logOut}) {
   return (
     <>
     <Navbar/>
+    <div className="container">
     { user.username ? 
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
@@ -37,7 +38,7 @@ function App({user, autoLogin, logOut}) {
       </Switch> :
       <Auth />
     }
-
+    </div>
     <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>
     </>
   );

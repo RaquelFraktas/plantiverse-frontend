@@ -11,7 +11,7 @@ function HomePageShow({user}) {
 
 
     return <div className="homepage">
-      Welcome to the site! Use the Navigation to browse 
+
     </div>
   }
 

@@ -37,6 +37,38 @@
   }
 }
 
+/* #root{
+  margin-bottom: 5%;
+} */
+
+.container {
+  background: rgb(252, 252, 252);
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 10px;
+  /* -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3); */
+  box-shadow:         0px 0px 8px rgba(149, 154, 160, 0.832);
+ 
+}
+
+.logout{
+  margin-bottom: 5%;
+  margin-left: 10%
+}
+
+.createDiscussion{
+  display: block;
+  align-items: top;
+  /* text-align: right; */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+
 /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
@@ -95,4 +127,25 @@
 
 .addPlantButton:hover {
   background-color: #4CAF50;
+}
+
+
+.navbarLink {
+  margin-left: 1em;
+  display: "flex";
+  text-decoration: "none";
+  color: white;
+  font-size: "20px";
+}
+/* 
+.plantiverse-nav{
+
+} */
+
+.navbarLink:hover{
+  color: yellow;
+}
+
+.error{
+  font: #f44336;
 }
