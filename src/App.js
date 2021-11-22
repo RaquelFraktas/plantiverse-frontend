@@ -8,7 +8,7 @@ import { autoLogin, logOut } from './redux/actionCreators'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-function App({user, autoLogin, logOut}) {
+function App({username, autoLogin, logOut}) {
   const history = useHistory()
   // console.log(user)
 
@@ -25,7 +25,7 @@ function App({user, autoLogin, logOut}) {
     <>
     <Navbar/>
     <div className="container">
-    { user.username ? 
+    { username ? 
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
         <Route path="/plants"> <PlantIndex/> </Route>
@@ -45,7 +45,7 @@ function App({user, autoLogin, logOut}) {
 }
 
 const mapStateToProps = (state)=> {
-  return {user: state.user}
+  return {username: state.user.username}
 
 }
 

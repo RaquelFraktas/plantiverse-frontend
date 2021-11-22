@@ -148,3 +148,8 @@
 .error{
   font: #f44336;
 }
+
+.forumPic {
+  max-width: 500px;
+  max-height: 500px;
+}
