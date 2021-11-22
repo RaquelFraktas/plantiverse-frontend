@@ -21,7 +21,6 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
 
   useEffect(() => {
     getPlant(routeId)
-    //returning a function is run when unmounting.
     return clearPlant()
   }, [getPlant, routeId, clearPlant])    
 

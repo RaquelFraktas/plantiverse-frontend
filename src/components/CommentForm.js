@@ -1,10 +1,8 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { postComment } from "../redux/actionCreators"
 
 function CommentForm ({postComment, currentUser, forumTopicId}) {
-  // const routeId = useParams().id
 
   const [content, setContent] = useState("")
 

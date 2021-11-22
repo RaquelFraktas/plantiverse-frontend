@@ -59,8 +59,16 @@ export default function reducer(state=initialState, {type, payload}){
     case "CLEAR_FORUM_TOPIC":
       return {...state, forumTopic: initialTopic};
     case "POST_COMMENT":
-      console.log({payload})
-      return {...state, forumTopic: {...state.forumTopic, comments:[...state.forumTopic.comments, payload]}};
+      console.log(...state.forumTopic.comments, payload)
+      return {...state,
+        forumTopic: {...state.forumTopic, 
+          comments: [...state.forumTopic.comments, payload]
+          }
+        };
+    case "GET_COMMENTS":
+      return {...state, comments: payload}
+    case "CLEAR_COMMENTS":
+      return {...state, comments: []};
     case "ERROR":
       return {...state, errors: payload}
     case "CLEAR_ERROR":

@@ -114,7 +114,6 @@ export const getForumTopic = (id) => {
 }
 
 export const postForumTopic = (forumTopic, history) => {
-  // console.log(history)
   return dispatch => fetch("http://localhost:3000/message_boards", {
     method: 'POST',
     headers: {
@@ -130,7 +129,7 @@ export const postForumTopic = (forumTopic, history) => {
   })
   .then(res =>res.json())
   .then(response => {
-    // history.push('/message_boards/',response.forum_topic.id)
+    history.push('/message_boards/'+ response.forum_topic.id)
     dispatch({type: "POST_FORUM_TOPIC", payload: response.forum_topic})
   })
 }
@@ -138,7 +137,7 @@ export const postForumTopic = (forumTopic, history) => {
 export const clearForumTopic = () => ({type:"CLEAR_FORUM_TOPIC"})
 
 export const postComment = (content,forumTopicId, currentUserId) => {
-  console.log(content, forumTopicId, currentUserId)
+  // console.log(content, forumTopicId, currentUserId)
   return dispatch => fetch(`http://localhost:3000/message_boards/${forumTopicId}/comments`, {
     method: 'POST',
     headers: {
@@ -153,7 +152,17 @@ export const postComment = (content,forumTopicId, currentUserId) => {
   })
   .then(res =>res.json())
   .then(comment => {
-    // console.log(comment)
-    dispatch({type: "POST_COMMENT", payload: {comment}})
+    console.log(comment)
+    dispatch({type: "POST_COMMENT", payload: comment})
   })
 }
+
+export const getComments = (id) => {
+  return dispatch => fetch(`http://localhost:3000/message_boards/${id}/comments`)
+  .then(res => res.json())
+  .then(comments => {
+    dispatch({type: "GET_COMMENTS", payload: comments})
+  }
+)} 
+
+export const clearComments = () => ({type:"CLEAR_COMMENTS"})

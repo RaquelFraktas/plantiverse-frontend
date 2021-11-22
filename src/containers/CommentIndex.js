@@ -1,15 +1,30 @@
 import { connect } from 'react-redux'
-import { CommentCard, CommentForm } from '../components/indexExports'
+import { useEffect } from 'react'
+import { useParams} from 'react-router-dom'
+import { CommentShow, CommentForm } from '../components/indexExports'
+import { getComments, clearComments } from '../redux/actionCreators'
 
+function CommentIndex({comments, user}) {
+  
+  const routeId = useParams().id
+  useEffect(() => {
+    getComments(routeId)
+    return clearComments(), 
+    [getComments, routeId]}) 
 
-function CommentIndex() {
+  console.log("from index", comments)
 
     return <div className ="commentContainer">
       this is in comment index
       <CommentForm />
-      <CommentCard />
+      {comments.map(comment=> <CommentShow {...comment} key={comment.id}/>)}
     </div>
 
 }
 
-export default connect(null)(CommentIndex)
+const mapStateToProps = (state) => {
+  console.log("this is the state in map state 2props",state.forumTopic.comments.user)
+  return {comments: state.forumTopic.comments}
+}
+
+export default connect(mapStateToProps)(CommentIndex)
