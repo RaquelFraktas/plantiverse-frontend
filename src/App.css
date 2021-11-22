@@ -44,10 +44,10 @@
 .container {
   background: rgb(252, 252, 252);
   /* height: 100vh; */
-  display: flex;
+  display: block;
   align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
   border-radius: 10px;
   /* -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
   -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3); */
@@ -61,13 +61,12 @@
 }
 
 .createDiscussion{
-  display: block;
-  align-items: top;
-  /* text-align: right; */
-  margin-left: auto;
-  margin-right: auto;
-  text-align: right;
+  position: absolute;
+  margin-left: 30%;
+  /* display: flex; */
 }
+
+
 
 /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {

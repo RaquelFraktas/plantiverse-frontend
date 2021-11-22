@@ -1,3 +1,6 @@
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -17,22 +20,21 @@ function ForumNewPost ({postForumTopic, user}) {
   }
 
   const createNewDiscussion = () => <div className ="createDiscussion">
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-      </label>
-      <label>
-        Content:
-        <input type="textarea" name="content" value={content} onChange={(e) => setContent(e.target.value)}/>
-      </label>
-      <label>
-        Submit a Picture URL:
-        <input type="text" name="pictureUrl" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)}/>
-      </label>
+    
+    <Box component="form" sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off" onSubmit={handleSubmit}>
+      <TextField id="topicTitle" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/> <br/>
+      <TextField id="topicContent" label="Content" variant="outlined" multiline maxRows={4} value={content} onChange={(e) => setContent(e.target.value)}/> <br/>
+      <TextField id="picUrl" label="Picture Url" variant="outlined" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)}/> <br />
       <input type="submit" value="Submit" />
-    </form>
+      </Box>
+
   </div>
+
+  
 
   return createNewDiscussion()
     
