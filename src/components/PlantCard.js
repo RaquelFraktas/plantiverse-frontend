@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addPlantToUser } from '../redux/actionCreators'
 
-function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUser, user}){
+function PlantCard({id, name, altName, img_url, description, origin, addPlantToUser, user}){
   
   const [isHovered, setHover] = useState(false);
 
@@ -19,7 +19,7 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
     <div className="plantCard" 
     onMouseOver={() => setHover(true)} 
     onMouseLeave={() => setHover(false)}>
-      <Image src={imgUrl} alt={name} className="imgCard"/>
+      <Image src={img_url} alt={name} className="imgCard"/>
       {isHovered && (
         <Button className="addPlantButton" onClick={handleAddPlantToCollection} variant="primary" >
           Add Plant to Collection
