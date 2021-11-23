@@ -12,13 +12,13 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
   const loadedPage= () => <div className="forumShow">
     <h1>hello from forum show</h1>
   
-    <img src={imgUrl} alt={title} className="forumPic"/>
+   {imgUrl && <img src={imgUrl} alt={title} className="forumPic"/>}
     <h3>{title}</h3>
       by {user.username}
-      {/* why cant i change it to author in my program? its initial state is author, but them automatically changes to user */}
     <p className="content">{content}</p>
 
     <CommentIndex />
+    <br />
     <Link to={`/message_boards/${parseInt(routeId) + 1}`}>Go to next Topic</Link>
   </div>
 
