@@ -15,7 +15,7 @@ const initialTopic ={
   title: "",
   content: "",
   imgUrl: "",
-  author: "",
+  user: "",
   id: "",
   comments: []
 }
@@ -59,10 +59,9 @@ export default function reducer(state=initialState, {type, payload}){
     case "CLEAR_FORUM_TOPIC":
       return {...state, forumTopic: initialTopic};
     case "POST_COMMENT":
-      console.log(...state.forumTopic.comments, payload)
       return {...state,
         forumTopic: {...state.forumTopic, 
-          comments: [...state.forumTopic.comments, payload]
+          comments: [payload, ...state.forumTopic.comments]
           }
         };
     case "GET_COMMENTS":
