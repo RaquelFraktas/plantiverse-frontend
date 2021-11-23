@@ -28,12 +28,11 @@ function App({username, autoLogin, logOut}) {
     { username ? 
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
+        <Route path="/plants?page=:id"> <PlantIndex/> </Route> 
         <Route path="/plants"> <PlantIndex/> </Route>
         <Route path="/message_boards/:id"> <ForumShow/> </Route>
         <Route path="/message_boards/"> <ForumIndex/> </Route>
         <Route path="/users/:id"> <UserShow/> </Route>
-        {/* <Route path="/message_boards/:id"> <ForumShow/> </Route> */}
-        
         <Route exact path="/"><HomePage /></Route>
       </Switch> :
       <Auth />
