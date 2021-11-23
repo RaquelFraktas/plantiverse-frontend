@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useParams} from 'react-router-dom'
 import { CommentCard, CommentForm } from '../components/indexExports'
 import { getComments, clearComments } from '../redux/actionCreators'
+import List from '@mui/material/List';
 
 function CommentIndex({comments}) {
   
@@ -12,11 +13,16 @@ function CommentIndex({comments}) {
     return clearComments()
     },[routeIdFromMessageTopic]) 
 
-    return <div className ="commentContainer">
-      this is in comment index
-      <CommentForm />
+  return <div className ="commentContainer">
+    <CommentForm />
+    <br />
+    {/* add spacing css */}
+
+    <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'background.paper', maxHeight: 400, overflow: 'auto'}}>
       {comments.map(comment=> <CommentCard {...comment} key={comment.id}/>)}
-    </div>
+    </List>
+
+  </div>
 
 }
 
