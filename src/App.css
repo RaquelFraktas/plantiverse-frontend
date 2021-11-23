@@ -73,6 +73,14 @@
   
 }
 
+.commentContainer {
+  position: relative;
+  margin-left:15%; 
+  display: block;
+  /* align-items: center; */
+  
+}
+
 /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
@@ -155,6 +163,9 @@
 }
 
 .forumPic {
-  max-width: 500px;
+  max-width: 400px;
   max-height: 500px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
 }
