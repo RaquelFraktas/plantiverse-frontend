@@ -1,7 +1,12 @@
-export const getPlants = () => {
-  return dispatch => fetch("http://localhost:3000/plants")
+export const getPlants = (searchParams) => {
+  const url= !searchParams? "http://localhost:3000/plants" : `http://localhost:3000/plants${searchParams}`
+  
+  return dispatch => fetch(url)
   .then(res => res.json())
-  .then(plants => dispatch({type: "GET_PLANTS", payload: plants})
+  .then(plants => {
+    // console.log(plants)
+    // history.push('/plants'+ plants.pagy.scaffold_url)
+    dispatch({type: "GET_PLANTS", payload: plants.plant_records})}
   )
 } 
 
@@ -137,7 +142,6 @@ export const postForumTopic = (forumTopic, history) => {
 export const clearForumTopic = () => ({type:"CLEAR_FORUM_TOPIC"})
 
 export const postComment = (content,forumTopicId, currentUserId) => {
-  // console.log(content, forumTopicId, currentUserId)
   return dispatch => fetch(`http://localhost:3000/message_boards/${forumTopicId}/comments`, {
     method: 'POST',
     headers: {
@@ -152,7 +156,7 @@ export const postComment = (content,forumTopicId, currentUserId) => {
   })
   .then(res =>res.json())
   .then(comment => {
-    console.log(comment)
+    // console.log(comment)
     dispatch({type: "POST_COMMENT", payload: comment})
   })
 }
