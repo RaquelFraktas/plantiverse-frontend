@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { postForumTopic } from "../redux/actionCreators"
+import Button from '@mui/material/Button'
 
 function ForumNewPost ({postForumTopic, user}) {
 
@@ -22,15 +22,16 @@ function ForumNewPost ({postForumTopic, user}) {
   const createNewDiscussion = () => <div className ="createDiscussion">
     
     <Box component="form" sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
+        '& > :not(style)': { m: 1, width: '25ch'},
       }}
       noValidate
       autoComplete="off" onSubmit={handleSubmit}>
       <TextField id="topicTitle" label="Title" variant="outlined" value={title} onChange={(e) => setTitle(e.target.value)}/> <br/>
       <TextField id="topicContent" label="Content" variant="outlined" multiline maxRows={4} value={content} onChange={(e) => setContent(e.target.value)}/> <br/>
-      <TextField id="picUrl" label="Picture Url" variant="outlined" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)}/> <br />
-      <input type="submit" value="Submit" />
-      </Box>
+      <TextField id="picUrl" label="Picture Url" variant="outlined" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)}/> 
+      <br />
+      <Button variant="contained" size="small" type="submit" value="Submit" >Submit</Button>
+    </Box>
 
   </div>
 
