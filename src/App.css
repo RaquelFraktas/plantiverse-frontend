@@ -7,13 +7,13 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,20 +22,20 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 /* #root{
   margin-bottom: 5%;
@@ -57,7 +57,7 @@
 
 .logout{
   margin-bottom: 5%;
-  margin-left: 10%
+  margin-left: 20%;
 }
 
 .createDiscussion{
@@ -70,16 +70,33 @@
   position: relative;
   left:40px; 
   top:40px;
-  
+}
+
+
+.forumShowData{
+  position: relative;
+  padding-top: 40px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 60px;
+  text-align: center;
+
+}
+
+.forumPic {
+  max-width: 400px;
+  max-height: 500px;
+  left: 50%;
+  top: 50%;
 }
 
 .commentContainer {
   position: relative;
-  margin-left:15%; 
-  display: block;
-  /* align-items: center; */
-  
+  left: 25%;
+  /* display: block;
+  align-items: center; */
 }
+
 
 /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
@@ -149,10 +166,6 @@
   color: white;
   font-size: "20px";
 }
-/* 
-.plantiverse-nav{
-
-} */
 
 .navbarLink:hover{
   color: yellow;
@@ -162,10 +175,9 @@
   font: #f44336;
 }
 
-.forumPic {
-  max-width: 400px;
-  max-height: 500px;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: block;
+#nextPage{
+  position: relative;
+  bottom: 15px;
+  left: 20px;
+  font-size: 15px;
 }
