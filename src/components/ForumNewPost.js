@@ -20,7 +20,7 @@ function ForumNewPost ({postForumTopic, user}) {
   }
 
   const createNewDiscussion = () => <div className ="createDiscussion">
-    
+  
     <Box component="form" sx={{
         '& > :not(style)': { m: 1, width: '25ch'},
       }}
@@ -37,7 +37,13 @@ function ForumNewPost ({postForumTopic, user}) {
 
   
 
-  return createNewDiscussion()
+  return <div className="forumNpContainer">
+      <h3>Before you create a new discussion, please read the guidelines below:</h3>
+      <p className="guidelines">Lorem ipsum dolor sit amet, 
+      consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+      {createNewDiscussion()}
+  </div>
     
 }
 
