@@ -15,7 +15,7 @@ function PlantIndex({plants, getPlants}){
 console.log(searchParams)
   useEffect(()=>{ 
     !searchParams ? getPlants("") : getPlants(searchParams)
-  }, [searchParams]) 
+  }, [searchParams, getPlants]) 
 
  
   const paginate= (
