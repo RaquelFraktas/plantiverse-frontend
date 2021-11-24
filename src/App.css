@@ -97,6 +97,24 @@
   align-items: center; */
 }
 
+.forumIndex{
+  padding: 20px;
+}
+
+.forumIndexDetails{
+  padding: 20px;
+  display: flex;
+}
+
+.messageBoardCards{
+  flex: 1;
+  margin-right: 20px;
+}
+
+.createDiscussion{
+  margin-left:10%;
+}
+
 
 /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
 .loader {
