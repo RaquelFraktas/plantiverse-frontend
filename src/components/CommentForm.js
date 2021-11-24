@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { postComment } from "../redux/actionCreators"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button'
 
 function CommentForm ({postComment, currentUser, forumTopicId}) {
 
@@ -16,19 +17,22 @@ function CommentForm ({postComment, currentUser, forumTopicId}) {
   }
 
   return <div className ="createComment">
-    <form onSubmit={handleSubmit}>
-    <Box component="form" sx={{'& .MuiTextField-root': { m: 1, width: '35ch' }}}>
+    
+    <Box component="form" sx={{'& .MuiTextField-root': { m: 1, width: '35ch' }}}
+      onSubmit={handleSubmit}>
       <TextField
-          id="outlined-multiline-static"
-          label="Post your comment"
-          multiline
-          rows={3}
-          // defaultValue="Post your comment"
-          value={content} onChange={(e) => setContent(e.target.value)}
+        id="outlined-multiline-static"
+        label="Post your comment"
+        multiline
+        rows={3}
+        style = {{width: 400}}
+        // defaultValue="Post your comment"
+        value={content} onChange={(e) => setContent(e.target.value)}
         />
+        <br />
+        <Button variant="contained" size="small" type="submit" value="Submit" >Submit</Button>
       </ Box>
-      <input type="submit" value="Submit" />
-    </form>
+      
   </div>
 
 }
