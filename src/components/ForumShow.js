@@ -10,16 +10,15 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
   const spinner = () => <div className="loader"></div>
 
   const loadedPage= () => <div className="forumShow">
-    <h1>hello from forum show</h1>
-  
-   {imgUrl && <img src={imgUrl} alt={title} className="forumPic"/>}
-    <h3>{title}</h3>
-      by {user.username}
-    <p className="content">{content}</p>
-
+    <div className="forumShowData">
+      <h1>{title}</h1>
+      {imgUrl && <img src={imgUrl} alt={title} className="forumPic"/>}
+      <h3>{content}</h3>
+        by {user.username}
+    </div>
     <CommentIndex />
     <br />
-    <Link to={`/message_boards/${parseInt(routeId) + 1}`}>Go to next Topic</Link>
+    <Link to={`/message_boards/${parseInt(routeId) + 1}`} id="nextPage">Go to next Topic</Link>
   </div>
 
   useEffect(() => {
