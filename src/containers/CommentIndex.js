@@ -16,12 +16,11 @@ function CommentIndex({comments}) {
   return <div className ="commentContainer">
     <CommentForm />
     <br />
-    {/* add spacing css */}
-
-    <List sx={{ width: '100%', maxWidth: 300, bgcolor: 'background.paper', maxHeight: 400, overflow: 'auto'}}>
-      {comments.map(comment=> <CommentCard {...comment} key={comment.id}/>)}
-    </List>
-
+    <div className ="commentsList">
+      <List sx={{ width: 400, bgcolor: 'background.paper', maxHeight: 400, overflow: 'auto'}}>
+        {comments.map(comment=> <CommentCard {...comment} key={comment.id}/>)}
+      </List>
+    </div>
   </div>
 
 }
