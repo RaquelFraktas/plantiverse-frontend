@@ -9,14 +9,17 @@ function ForumIndex({getForumTopics, forumTopics}) {
 
 
   return <div className= "forumIndex">
-    <ForumNewPost />
-      <br />
-      <div className="messageBoardCards">
-        <List sx={{ width: 400, bgcolor: 'background.paper', maxHeight: 700, overflow: 'auto'}}>
-          {forumTopics.map(topic => <ForumCard {...topic} key={topic.id}/>)}
-        </List>
+    <h1>Welcome to the message boards. </h1>
+    <p>Here you can chat with other fellow plant lovers, or ask for advice on issues with your plant.</p>
+      <div className="forumIndexDetails">
+        <div className="messageBoardCards">
+          <List sx={{ width: 300, bgcolor: 'background.paper', maxHeight: 500, overflow: 'auto'}}>
+            {forumTopics.map(topic => <ForumCard {...topic} key={topic.id}/>)}
+          </List>
+        </div>
+        <ForumNewPost />
+      </div>
     </div>
-  </div>
 
 }
 
