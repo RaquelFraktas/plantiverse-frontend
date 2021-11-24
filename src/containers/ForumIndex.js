@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getForumTopics } from "../redux/actionCreators"
 import { ForumCard, ForumNewPost } from '../components/indexExports'
+import List from '@mui/material/List';
 
 function ForumIndex({getForumTopics, forumTopics}) {
   useEffect(getForumTopics, [getForumTopics]) 
@@ -9,9 +10,11 @@ function ForumIndex({getForumTopics, forumTopics}) {
 
   return <div className= "forumIndex">
     <ForumNewPost />
+      <br />
       <div className="messageBoardCards">
-       Check out the discussions below
-      {forumTopics.map(topic => <ForumCard {...topic} key={topic.id}/>)}
+        <List sx={{ width: 400, bgcolor: 'background.paper', maxHeight: 700, overflow: 'auto'}}>
+          {forumTopics.map(topic => <ForumCard {...topic} key={topic.id}/>)}
+        </List>
     </div>
   </div>
 
