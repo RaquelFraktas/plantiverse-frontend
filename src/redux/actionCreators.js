@@ -1,13 +1,10 @@
-export const getPlants = (searchParams) => {
-  const url= !searchParams? "http://localhost:3000/plants" : `http://localhost:3000/plants${searchParams}`
-  
-  return dispatch => fetch(url)
-  .then(res => res.json())
-  .then(plants => {
-    // console.log(plants)
-    // history.push('/plants'+ plants.pagy.scaffold_url)
-    dispatch({type: "GET_PLANTS", payload: plants.plant_records})}
-  )
+export const getPlants = (searchQuery) => {
+  const url= !searchQuery? "http://localhost:3000/plants" : `http://localhost:3000/plants${searchQuery}`
+    return dispatch => fetch(url)
+    .then(res => res.json())
+    .then(plants => {
+      dispatch({type: "GET_PLANTS", payload: plants.plant_records})}
+    )
 } 
 
 export const getPlant = (id) => {
