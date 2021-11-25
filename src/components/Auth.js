@@ -56,8 +56,8 @@ function Auth(props){
           }}
         >
           Hello! In order to access the site, you must have an account with us.
-          <Typography component="h1" variant="h5">
-          {signUp ? <h1> Sign up! </h1> : <h1> Log in! </h1>}
+          <Typography component="h1" variant="h3">
+          {signUp ?  "Sign up!" : "Log in!"}
           </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
