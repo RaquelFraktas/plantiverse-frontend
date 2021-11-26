@@ -53,7 +53,7 @@ export default function reducer(state=initialState, {type, payload}){
     case "GET_FORUM_TOPIC":
       return {...state, forumTopic: payload}
     case "POST_FORUM_TOPIC":
-      return {...state, forumTopics: [...state.forumTopics, payload]}
+      return {...state, forumTopics: [payload, ...state.forumTopics]}
     case "GET_FORUM_TOPICS":
       return {...state, forumTopics: payload}
     case "CLEAR_FORUM_TOPIC":
