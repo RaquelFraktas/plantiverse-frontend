@@ -1,10 +1,29 @@
 import { useEffect, useState } from "react"
 import { getPlants } from "../redux/actionCreators"
 import { connect } from "react-redux"
+import { useHistory, useLocation } from "react-router-dom"
 import { PlantCard } from '../components/indexExports'
 import Pagination from '@mui/material/Pagination';
-import { useHistory, useLocation } from "react-router-dom"
+import { makeStyles } from '@material-ui/core/styles';
+import { ImageList } from '@material-ui/core'
+import { ImageListItem } from '@material-ui/core';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    width: 1000,
+    height: 1000,
+    padding: '34px'
+  },
+}));
 
 
 function PlantIndex({plants, getPlants}){
@@ -12,6 +31,8 @@ function PlantIndex({plants, getPlants}){
   const history = useHistory()
   const [page, setPage] = useState(`?page=1`) 
   const pageFromParams = !location.search ? 1 : parseInt(location.search.match(/\d/)[0]) 
+  
+  const classes = useStyles();
 
   const handleChange = (event, value) => {
     setPage(`?page=${value}`);
@@ -23,8 +44,21 @@ function PlantIndex({plants, getPlants}){
 
 
   return <div className="plantCards">
-      {plants.map(plant => <PlantCard {...plant} key={plant.id}/>)}
-      <Pagination count={8} color="primary" onChange={handleChange} page ={pageFromParams}/>
+    <div className={classes.root}>
+    <ImageList rowHeight={300}  gap={30} className={classes.gridList}>
+        <ImageListItem key="Subheader" cols={4} style={{ height: 'auto' }}>
+          <ListSubheader component="div"></ListSubheader>
+        </ImageListItem>
+
+      {plants.map((plant) => 
+      <ImageListItem key={plant.id}>
+        <PlantCard {...plant} key={plant.id} />
+      </ImageListItem>
+      )}
+      </ImageList>
+      </div>
+      
+      <Pagination count={9} color="primary" onChange={handleChange} page ={pageFromParams}/>
    
   </div>
 }
