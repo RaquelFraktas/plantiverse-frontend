@@ -1,32 +1,7 @@
-.App {
-  text-align: center;
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-/* .App-link {
-  color: #61dafb;
-} */
 
 /* @keyframes App-logo-spin {
   from {
@@ -37,9 +12,6 @@
   }
 } */
 
-/* #root{
-  margin-bottom: 5%;
-} */
 
 .container {
   position: relative;
@@ -47,8 +19,8 @@
   min-height: 75vh;
   display: block;
   align-items: center;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   border-radius: 10px;
   /* -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3); 
   -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);  */
@@ -88,6 +60,10 @@
   max-height: 500px;
   left: 50%;
   top: 50%;
+}
+
+.formDialog{
+  align-content: center;
 }
 
 .commentContainer {
@@ -132,14 +108,15 @@
 }
 
 .plantCards {
-  display: flex;
+  display: flex; 
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-around; 
 }
 
-.plantCard {
-  position: relative;
-}
+/* .plantCard {
+  /* position: flex;
+ } */
+
 
 .imgCard {
   position: relative;
@@ -148,11 +125,8 @@
   margin-right: auto;
   margin-top: 20px;
   display: block;    
-  width: auto;
-  height: auto;
   max-width: 200px;
   max-height: 200px;
- 
 }
 
 .imgCard:hover {
@@ -169,11 +143,14 @@
   top: 40%;
   left: 50%;
   height: 50px;
+  background-color: rgb(54, 148, 25);
+  color:white;
   /* transition: opacity .2s, visibility .2s; */
 }
 
 .addPlantButton:hover {
-  background-color: #4CAF50;
+  background-color: rgba(54,148,25,0.67);
+  color:white;
 }
 
 
@@ -182,7 +159,7 @@
   display: "flex";
   text-decoration: "none";
   color: white;
-  font-size: "20px";
+  /* font-size: "20px"; */
 }
 
 .navbarLink:hover{
