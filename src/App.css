@@ -3,27 +3,17 @@
 }
 
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-
 .container {
   position: relative;
   background: rgb(252, 252, 252);
-  min-height: 75vh;
+  /* min-height: 75vh; */
   display: block;
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
+  /* margin-top:-5%; */
+  /* z-index: 0; */
   border-radius: 10px;
-  /* -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3); 
-  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);  */
   box-shadow:         0px 0px 8px rgba(149, 154, 160, 0.832);
 }
 
@@ -111,12 +101,8 @@
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-around; 
+  padding-top: 10px;
 }
-
-/* .plantCard {
-  /* position: flex;
- } */
-
 
 .imgCard {
   position: relative;
@@ -166,13 +152,23 @@
   color: yellow;
 }
 
+#banner{
+  -webkit-clip-path: inset(150px 0px 20px 0px);
+  clip-path: inset(150px 0px 20px 0px);
+  margin-top: -150px;
+  margin-bottom: -1%;
+}
+
 .error{
   font: #f44336;
 }
 
-#nextPage{
+.bottomLinksOfForum{
   position: relative;
   bottom: 15px;
-  left: 20px;
+  left: 60px;
+  margin-right: 125px;
   font-size: 15px;
+  display: flex;
+  justify-content: space-between;
 }
