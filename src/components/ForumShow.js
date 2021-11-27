@@ -18,7 +18,10 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
     </div>
     <CommentIndex />
     <br />
-    <Link to={`/message_boards/${parseInt(routeId) + 1}`} id="nextPage">Go to next Topic</Link>
+    <div className="bottomLinksOfForum">
+      <Link to={`/message_boards/${parseInt(routeId) - 1}`} id="lastPage">Last Topic</Link>
+      <Link to={`/message_boards/${parseInt(routeId) + 1}`} id="nextPage">Next Topic</Link>
+    </div>
   </div>
 
   useEffect(() => {

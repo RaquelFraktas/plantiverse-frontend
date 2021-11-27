@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex, ForumShow } from './components/indexExports'
+import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex, ForumShow , Banner} from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
@@ -24,7 +24,9 @@ function App({username, autoLogin, logOut}) {
   return (
     <>
     <Navbar/>
+    <Banner />
     <div className="container">
+   
     { username ? 
       <Switch>
         <Route path="/plants/:id"> <PlantShow/> </Route> 
