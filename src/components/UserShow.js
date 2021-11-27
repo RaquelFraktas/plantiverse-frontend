@@ -15,7 +15,11 @@ function UserShow({selectedUser, getUser, clearUserShow}){
   const spinner = () => <div className="loader"></div>
 
   const loadedPage= () => <div className="userShow">
-    <p>This is in {selectedUser.username}'s' plant collection</p>
+    <p className="userWelcome"><h1>Hello! </h1>
+
+      <h2>This is in {selectedUser.username}'s' plant collection</h2></p>
+      {/* get an image list in here */}
+
       <ul className="usersPlantCollection">
           {selectedUser.plants.map(plant => 
             <li key={plant.id}>
