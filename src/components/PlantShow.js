@@ -9,15 +9,14 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
 
   const spinner = () => <div className="loader"></div>
 
-  const loadedPage= () => <div className="show">
-      <h1>this is the show page</h1>
-    
-      <img src={imgUrl} alt={name}/>
-      <h3>{altName}</h3>
-      <span className="origin"> {origin}</span>
-      <p className="description">{description}</p>
-      <Link to={`/plants/${parseInt(routeId) + 1}`}>Go to next Plant</Link>
-    </div>
+  const loadedPage= () => <div className="plantShow">
+    <h1>{name}</h1>
+    <img src={imgUrl} alt={name}/>
+    <h3>{altName}</h3>
+    <span className="origin"> {origin}</span>
+    <p className="description">{description}</p>
+    <Link to={`/plants/${parseInt(routeId) + 1}`}>Go to next Plant</Link>
+  </div>
 
   useEffect(() => {
     getPlant(routeId)
@@ -26,7 +25,6 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
 
 
   return id ? loadedPage() : spinner()
-  
 
 }
 
