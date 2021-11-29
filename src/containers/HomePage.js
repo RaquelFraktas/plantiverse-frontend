@@ -10,9 +10,8 @@ function HomePageShow({user}) {
   useEffect(()=> user.username &&  historyPushToUser())
 
 
-    return <div className="homepage">
+    return <div className="homepage"/>
 
-    </div>
   }
 
 

@@ -2,25 +2,44 @@
   font-family: 'Roboto', sans-serif;
 }
 
+a:hover{
+  color:hsl(302, 79%, 80%);
+}
+
+footer{
+  position: fixed;
+  height: 100px;
+  background:linear-gradient(to right top, hsla(302, 78%, 80%, 0.762), #fff);
+  bottom:0px;
+  height:60px;
+  width:100%;
+  z-index: 2;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* .logout{
+  position: relative;
+  margin-bottom: 5%;
+  /* margin-left: 20%;  */
 
 .container {
-  position: relative;
+  position: absolute;
   background: rgb(252, 252, 252);
   min-height: 75vh;
-  display: block;
+  min-width: 120vh;
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
-  /* margin-top:-5%; */
-  /* z-index: 0; */
+  margin-top: 175px;
+  z-index: 1;
   border-radius: 10px;
-  box-shadow:         0px 0px 8px rgba(149, 154, 160, 0.832);
+  box-shadow: 0px 0px 8px rgba(149, 154, 160, 0.832);
 }
 
-.logout{
-  margin-bottom: 5%;
-  margin-left: 20%;
-}
+
+
 
 .createDiscussion{
   position: absolute;
@@ -30,8 +49,25 @@
 
 .userShow {
   position: relative;
+  padding: 20px;
   left:40px; 
   top:40px;
+  text-align: center;
+  
+}
+
+.userPlantCollection{
+  float:left;
+}
+
+.selectedUserPosts{
+  position: relative;
+  width:30%;
+  float:left;
+  left: 10%;
+  margin-top: 5%;
+  
+
 }
 
 
@@ -102,6 +138,7 @@
   flex-wrap: wrap;
   justify-content: space-around; 
   padding-top: 10px;
+  padding-bottom: 65px;
 }
 
 .imgCard {
@@ -154,10 +191,16 @@
 }
 
 #banner{
+  position: absolute;
+  background: url('./plantsBanner.jpg');
+  background-repeat: repeat-x;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 200px;
   -webkit-clip-path: inset(150px 0px 20px 0px);
-  clip-path: inset(150px 0px 20px 0px);
-  margin-top: -150px;
-  /* margin-bottom: -1%; */
+  clip-path: inset(150px 0px 0px 0px);
+  margin-top: -86px;
 }
 
 .error{
@@ -172,4 +215,9 @@
   font-size: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+ul{
+  list-style-type: none;
+  text-align: left;
 }
