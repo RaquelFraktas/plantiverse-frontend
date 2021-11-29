@@ -40,7 +40,10 @@ function App({username, autoLogin, logOut}) {
       <Auth />
     }
     </div>
-    <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>
+    {username && <footer>
+      <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>
+    </footer> 
+    }
     </>
   );
 }
