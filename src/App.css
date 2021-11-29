@@ -206,6 +206,14 @@ ul{
   background-color: rgba(54,148,25,0.67);
 }
 
+.plantShow{
+  padding: 40px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+
+}
+
 .error{
   font: #f44336;
 }
