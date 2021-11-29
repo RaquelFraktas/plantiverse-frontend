@@ -41,7 +41,7 @@ function UserShow({selectedUser, getUser, clearUserShow}){
   const userMessageboardPosts= ()=> <div className="selectedUserPosts">
     {selectedUser.forumTopics !== "" && <h3>These are the forums they posted in</h3>}
     <ul>
-      {selectedUser.forumTopics.map(forumTopic => <li><Link to={`/message_boards/${forumTopic.id}`} >{forumTopic.title}</Link></li>)}
+      {selectedUser.forumTopics.map(forumTopic => <li key={forumTopic.id}><Link to={`/message_boards/${forumTopic.id}`} >{forumTopic.title}</Link></li>)}
     </ul>
   </div>
 

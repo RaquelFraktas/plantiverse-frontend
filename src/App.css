@@ -36,14 +36,15 @@ footer{
 .createDiscussion{
   position: absolute;
   margin-left: 30%;
-  /* display: flex; */
 }
+
+
 
 .userShow {
   position: relative;
   padding: 20px;
   left:40px; 
-  top:40px;
+  top:20px;
   text-align: center;
   
 }
@@ -85,10 +86,17 @@ footer{
 
 .commentContainer {
   position: relative;
-  left: 25%;
+  left: 30%;
+
   /* display: block;
   align-items: center; */
 }
+/* 
+.commentsList{
+  -webkit-clip-path: inset(150px 0px 20px 0px);
+  clip-path: inset(0px 600px 0px 0px);
+
+} */
 
 .forumIndex{
   padding: 20px;
