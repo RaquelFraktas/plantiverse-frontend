@@ -18,11 +18,17 @@ footer{
   text-align: center;
 }
 
+ul{
+  list-style-type: none;
+  text-align: left;
+}
+
 .container {
   position: absolute;
   background: rgb(252, 252, 252);
   min-height: 75vh;
-  min-width: 120vh;
+  width:80%;
+  /* min-width: 120vh; */
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
@@ -30,23 +36,42 @@ footer{
   z-index: 1;
   border-radius: 10px;
   box-shadow: 0px 0px 8px rgba(149, 154, 160, 0.832);
+  padding-bottom: 65px;
 }
 
+.navbarLink {
+  margin-left: 1em;
+  display: "flex";
+  text-decoration: "none";
+  color: white;
+  /* font-size: "20px"; */
+}
 
-.createDiscussion{
+.navbarLink:hover{
+  color: yellow;
+}
+
+#banner{
   position: absolute;
-  margin-left: 30%;
+  background: url('./plantsBanner.jpg');
+  background-repeat: repeat-x;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 200px;
+  -webkit-clip-path: inset(150px 0px 20px 0px);
+  clip-path: inset(150px 0px 0px 0px);
+  margin-top: -86px;
 }
 
 
-
+/* user pages */
 .userShow {
   position: relative;
   padding: 20px;
   left:40px; 
   top:20px;
   text-align: center;
-  
 }
 
 .userPlantCollection{
@@ -58,10 +83,18 @@ footer{
   width:30%;
   float:left;
   left: 10%;
-  margin-top: 5%;
-  
+  margin-top: 5%; 
 }
 
+/* forum pages */
+.forumIndex{
+  padding: 20px;
+}
+
+.forumIndexDetails{
+  padding: 20px;
+  display: flex;
+}
 
 .forumShowData{
   position: relative;
@@ -80,6 +113,16 @@ footer{
   top: 50%;
 }
 
+.bottomLinksOfForum{
+  position: relative;
+  bottom: 15px;
+  left: 60px;
+  margin-right: 125px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .formDialog{
   align-content: center;
 }
@@ -88,8 +131,6 @@ footer{
   position: relative;
   left: 30%;
 
-  /* display: block;
-  align-items: center; */
 }
 /* 
 .commentsList{
@@ -98,22 +139,10 @@ footer{
 
 } */
 
-.forumIndex{
-  padding: 20px;
-}
-
-.forumIndexDetails{
-  padding: 20px;
-  display: flex;
-}
 
 .messageBoardCards{
   flex: 1;
   margin-right: 20px;
-}
-
-.createDiscussion{
-  margin-left:10%;
 }
 
 
@@ -132,12 +161,13 @@ footer{
   100% { transform: rotate(360deg); }
 }
 
+/* plant pages */
 .plantCards {
   display: flex; 
   flex-wrap: wrap;
   justify-content: space-around; 
   padding-top: 10px;
-  padding-bottom: 65px;
+  /* padding-bottom: 65px; */
 }
 
 .imgCard {
@@ -176,47 +206,8 @@ footer{
   background-color: rgba(54,148,25,0.67);
 }
 
-
-.navbarLink {
-  margin-left: 1em;
-  display: "flex";
-  text-decoration: "none";
-  color: white;
-  /* font-size: "20px"; */
-}
-
-.navbarLink:hover{
-  color: yellow;
-}
-
-#banner{
-  position: absolute;
-  background: url('./plantsBanner.jpg');
-  background-repeat: repeat-x;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 200px;
-  -webkit-clip-path: inset(150px 0px 20px 0px);
-  clip-path: inset(150px 0px 0px 0px);
-  margin-top: -86px;
-}
-
 .error{
   font: #f44336;
 }
 
-.bottomLinksOfForum{
-  position: relative;
-  bottom: 15px;
-  left: 60px;
-  margin-right: 125px;
-  font-size: 15px;
-  display: flex;
-  justify-content: space-between;
-}
 
-ul{
-  list-style-type: none;
-  text-align: left;
-}
