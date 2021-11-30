@@ -8,7 +8,7 @@ export default function Navbar(){
         <CssBaseline />
         <Toolbar>
           <Typography variant="h3" className="plantiverse-nav">
-            Plantiverse
+            PlantiVerse
           </Typography>
             <NavLink to="/" className="navbarLink" >
               Home
