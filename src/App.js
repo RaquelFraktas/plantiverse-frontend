@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex, ForumShow , Banner} from './components/indexExports'
+import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex, ForumShow , Banner, NotFound} from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useEffect } from 'react'
@@ -36,9 +36,11 @@ function App({username, autoLogin, logOut}) {
         <Route path="/message_boards/"> <ForumIndex/> </Route>
         <Route path="/users/:id"> <UserShow/> </Route>
         <Route exact path="/"><HomePage /></Route>
+        <Route component={NotFound} />
       </Switch> :
       <Auth />
     }
+
     </div>
     {username && <footer>
       <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>
