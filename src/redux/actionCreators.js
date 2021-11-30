@@ -7,10 +7,17 @@ export const getPlants = (searchQuery) => {
     )
 } 
 
-export const getPlant = (id) => {
+export const getPlant = (id, history) => {
   return dispatch => fetch (`http://localhost:3000/plants/${id}`)
   .then(res => res.json())
-  .then(plant => dispatch({type: "GET_PLANT", payload: plant}))
+  .then(plant => {
+    if(!plant.error){
+      dispatch({type: "GET_PLANT", payload: plant})
+    } else { 
+      history.push(`/NotFound`)
+      // dispatch({type: "ERROR", payload: "Invalid Plant id"})
+    }
+  })
 }
 
 export const clearPlant = () => ({type:"CLEAR_PLANT"})
