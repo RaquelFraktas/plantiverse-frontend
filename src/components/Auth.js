@@ -5,7 +5,6 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
 import { useEffect, useState } from 'react'
 import { submitSignUp, submitLogin, clearErrors } from '../redux/actionCreators'
 import { connect } from 'react-redux'
@@ -39,8 +38,8 @@ function Auth(props){
   
   useEffect(()=> {
     password !== passwordConfirmation ? setInvalidPassword(true) : setInvalidPassword(false)
-    return props.user
-  }, [password, passwordConfirmation, props.user]) 
+    return props.user && props.clearErrors
+  }, [password, passwordConfirmation, props.user, props.clearErrors]) 
   
 
   return <>
