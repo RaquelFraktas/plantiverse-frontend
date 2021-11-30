@@ -76,6 +76,7 @@ ul{
 
 .userPlantCollection{
   float:left;
+  padding-bottom: 50px;
 }
 
 .selectedUserPosts{
