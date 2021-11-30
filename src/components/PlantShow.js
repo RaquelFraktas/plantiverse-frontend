@@ -1,13 +1,18 @@
 import { useParams} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getPlant, clearPlant } from '../redux/actionCreators'
+import { getPlant, clearPlant, clearErrors } from '../redux/actionCreators'
 import { useEffect } from "react"
-import { Link } from 'react-router-dom'
+import { Link, useHistory} from 'react-router-dom'
+
 
 function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearPlant, id}){
   const routeId = useParams().id
+  const history = useHistory()
 
-  const spinner = () => <div className="loader"></div>
+
+  const spinner = () => <div className="loader" />
+
+  
 
   const loadedPage= () => <div className="plantShow">
     <h1>{name}</h1>
@@ -19,9 +24,9 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
   </div>
 
   useEffect(() => {
-    getPlant(routeId)
-    return clearPlant()
-  }, [getPlant, routeId, clearPlant])    
+    getPlant(routeId, history)
+    return clearPlant() 
+  }, [getPlant, routeId, clearPlant, history])    
 
 
   return id ? loadedPage() : spinner()
@@ -30,8 +35,8 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
 
 
 const mapStateToProps = (state) => {
-  return {...state.selectedPlant}
-  }
+    return {...state.selectedPlant} 
+}
   
-export default connect(mapStateToProps, { getPlant, clearPlant })(PlantShow)
+export default connect(mapStateToProps, { getPlant, clearPlant, clearErrors })(PlantShow)
 // using the above dispatch method adds it to our plantshow props
