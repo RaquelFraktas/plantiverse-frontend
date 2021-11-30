@@ -29,13 +29,13 @@ function App({username, autoLogin, logOut}) {
    
     { username ? 
       <Switch>
-        <Route path="/plants/:id"> <PlantShow/> </Route> 
-        <Route path="/plants?page=:id"> <PlantIndex/> </Route> 
-        <Route path="/plants"> <PlantIndex/> </Route>
-        <Route path="/message_boards/:id"> <ForumShow/> </Route>
-        <Route path="/message_boards/"> <ForumIndex/> </Route>
-        <Route path="/users/:id"> <UserShow/> </Route>
-        <Route exact path="/"><HomePage /></Route>
+        <Route path="/plants/:id" component={PlantShow} />
+        <Route path="/plants?page=:id" component={PlantIndex} />
+        <Route path="/plants" component= {PlantIndex} />
+        <Route path="/message_boards/:id" component={ForumShow} />
+        <Route path="/message_boards/" component={ForumIndex}/>
+        <Route path="/users/:id" component={UserShow} />
+        <Route exact path="/" component={HomePage} />
         <Route component={NotFound} />
       </Switch> :
       <Auth />
