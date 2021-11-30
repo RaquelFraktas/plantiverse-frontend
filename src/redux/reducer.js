@@ -28,7 +28,6 @@ const initialState = {
   errors:"",
   selectedUser: initialUser,
   forumTopics: [],
-  // selectedTopic: initialTopic,
   forumTopic: initialTopic,
 }
 
