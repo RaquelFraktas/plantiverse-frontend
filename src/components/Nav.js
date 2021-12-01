@@ -10,7 +10,8 @@ export default function Navbar(){
           <Typography variant="h3" className="plantiverse-nav">
             PlantiVerse
           </Typography>
-            <NavLink to="/" className="navbarLink" >
+          <Typography variant="h6" >
+            <NavLink to="/" className="navbarLink">
               Home
             </NavLink>
             <NavLink to="/plants" className="navbarLink">
@@ -19,16 +20,9 @@ export default function Navbar(){
             <NavLink to="/message_boards" className="navbarLink">
               Message Boards
             </NavLink>
+          </Typography>
         </Toolbar>
       </AppBar>
     </nav>
 
-
-
-
-  // return <nav>
-  //   <NavLink to='/'>Home</NavLink>
-  //   <NavLink to='/plants'>See All Plants</NavLink>
-  //   <NavLink to='/message_boards'>Message Boards</NavLink>
-  // </nav>
 }
