@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import { PlantIndex, PlantShow, Navbar, Auth, HomePage, UserShow, ForumIndex, ForumShow , Banner, NotFound} from './components/indexExports'
 import { Switch, Route } from 'react-router-dom'
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom'
 
 function App({username, autoLogin, logOut}) {
   const history = useHistory()
-  // console.log(user)
 
   useEffect(() => localStorage.token && autoLogin(),[autoLogin])
   
@@ -18,7 +16,6 @@ function App({username, autoLogin, logOut}) {
     e.preventDefault();
     logOut()
     history.push("/")
-    // can do the redirect in my action creator, as long as history is passed in logout
   }
 
   return (
@@ -44,6 +41,8 @@ function App({username, autoLogin, logOut}) {
     </div>
     {username && <footer>
       <Link to='/' className="logout" onClick={handleLogout}> Log Out </Link>
+      <br/>
+      <Link to='https://www.123rf.com/photo_106978867_background-with-watercolor-tropical-plants-and-flowers-useful-for-design-of-banners-cards-greetings-.html' >Source Link for Banner</Link>
     </footer> 
     }
     </>
