@@ -8,15 +8,13 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 
 function UserShow({selectedUser, getUser, clearUserShow}){
-
   const routeId = useParams().id
+  const spinner = () => <div className="loader"></div>
 
   useEffect(() => {
     getUser(routeId)
     return clearUserShow()
   }, [getUser, routeId, clearUserShow])
-
-  const spinner = () => <div className="loader"></div>
 
   const plantCollection= () =><div className="userPlantCollection">
     <h2>This is in {selectedUser.username}'s' plant collection</h2>

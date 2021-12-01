@@ -1,6 +1,9 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+a{
+  text-decoration: none;
+}
 
 a:hover{
   color:hsl(302, 79%, 80%);
@@ -16,7 +19,13 @@ footer{
   border-radius: 10px;
   font-size: 16px;
   text-align: center;
+  display: block;
 }
+
+footer > a{
+  color: rgba(138,97,39,1);
+}
+
 
 ul{
   list-style-type: none;
