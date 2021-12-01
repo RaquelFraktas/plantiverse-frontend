@@ -7,6 +7,18 @@ export const getPlants = (searchQuery) => {
     )
 } 
 
+// export const getFilteredPlants =(searchQuery) =>{
+//   return dispatch => fetch("http://localhost:3000/search_plant", {
+//   method: 'GET',
+//   headers: {
+//     'Content-Type' : 'application/json',
+//   },
+//   body: JSON.stringify(searchQuery),
+// })
+// .then(res => res.json())
+// .then(res => console.log(res))
+// }
+
 export const getPlant = (id, history) => {
   return dispatch => fetch (`http://localhost:3000/plants/${id}`)
   .then(res => res.json())
@@ -83,18 +95,36 @@ export const logOut = () => {
 export const clearErrors = () => ({type:"CLEAR_ERROR"})
 
 export const addPlantToUser = ([user,id]) =>{
-  
   return dispatch => fetch (`http://localhost:3000/users/${user.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'AddPlant': 'plant_id',
     },
     body: JSON.stringify([user,id]),
   })
   .then(res =>res.json())
   .then(response => {
+    console.log(response.plants)
     dispatch({type: "ADD_PLANT_TO_USER", payload: response.plants})
+  })
+}
+
+export const removePlantFromUser = ([user,id]) =>{
+  return dispatch => fetch (`http://localhost:3000/users/${user.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept': 'application/json',
+      'RemovePlant': 'plant_id',
+    },
+    body: JSON.stringify([user,id]),
+  })
+  .then(res =>res.json())
+  .then(response => {
+    console.log(response.plants)
+    dispatch({type: "DELETE_PLANT_FROM_USER", payload: response.plants})
   })
 }
 
