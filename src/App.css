@@ -160,10 +160,12 @@ ul{
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid hsl(302, 79%, 80%);
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  border-radius: 70%;
+  width: 140px;
+  height: 140px;
   animation: spin 2s linear infinite;
+  margin-top: 20%;
+  margin-left: 35%
 }
 
 @keyframes spin {
@@ -224,8 +226,10 @@ ul{
 
 }
 
-.error{
-  font: #f44336;
+.alert{
+  color: #f44336;
+  font-weight:bold;
+  text-align: center;
 }
 
 
