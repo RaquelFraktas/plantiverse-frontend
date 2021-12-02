@@ -30,21 +30,11 @@ function PlantIndex({plants, getPlants}){
   const location =useLocation()
   const history = useHistory()
   const [page, setPage] = useState(`?page=1`) 
-  // const [searchQuery, setSearchQuery] = useState("")
+  
   const pageFromParams = !location.search ? 1 : parseInt(location.search.match(/\d/)[0]) 
   
   const classes = useStyles();
 
-  // const sortedPlants = (newSearchQuery) => setSearchQuery(newSearchQuery)
-
-  // const filterPlants =()=>{
-  //   if(searchQuery){
-  //     return plants.filter(plant => {
-  //       plant.name.includes(searchQuery)})
-  //   } else {
-  //     return plants
-  //   }
-  // }
   useEffect(()=> { !location.search? getPlants(page) : getPlants(location.search) 
   },[page, getPlants, location.search]) 
 
@@ -54,38 +44,22 @@ function PlantIndex({plants, getPlants}){
     history.push(`/plants?page=${value}`)
   };
 
-  // useEffect(()=> { 
-  //   if(!searchQuery){
-  //     !location.search? getPlants(page) : getPlants(location.search) 
-  //   } else {
-  //     getFilteredPlants(searchQuery)
-  //   }
-  // },[page, getPlants, location.search, searchQuery]) 
-
-
 
   return <>
-    {/* <div className="plantSearch">
-      <PlantSearch sortedPlants={sortedPlants}/>
-    </div> */}
-
     <div className="plantCards">
       <div className={classes.root}>
       <ImageList rowHeight={300}  gap={30} className={classes.gridList}>
           <ImageListItem key="Subheader" cols={4} style={{ height: 'auto' }}>
             <ListSubheader component="div"></ListSubheader>
           </ImageListItem>
-  
         {plants.map((plant) => 
         <ImageListItem key={plant.id}>
           <PlantCard {...plant} key={plant.id} />
         </ImageListItem>
         )}
         </ImageList>
-        </div>
-        
-        <Pagination count={9} color="primary" onChange={handleChange} page ={pageFromParams}/>
-     
+      </div>  
+      <Pagination count={9} color="primary" onChange={handleChange} page ={pageFromParams}/>
     </div>
   </>
 }
