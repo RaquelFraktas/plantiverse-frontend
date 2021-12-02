@@ -49,7 +49,8 @@ export default function reducer(state=initialState, {type, payload}){
     case "CLEAR_USER_SHOW":
       return {...state, selectedUser: initialUser};
     case "ADD_PLANT_TO_USER":
-      return {...state, user: {...state.user, 
+      return {...state, 
+        user: {...state.user, 
         plants: payload}}
     case "DELETE_PLANT_FROM_USER":
       return {...state, user: {...state.user, 

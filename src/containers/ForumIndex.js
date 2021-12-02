@@ -7,7 +7,6 @@ import List from '@mui/material/List';
 function ForumIndex({getForumTopics, forumTopics}) {
   useEffect(getForumTopics, [getForumTopics]) 
 
-
   return <div className= "forumIndex">
     <h1>Welcome to the message boards. </h1>
     <p>Here you can chat with other fellow plant lovers, or ask for advice on issues with your plant.</p>
@@ -19,7 +18,7 @@ function ForumIndex({getForumTopics, forumTopics}) {
         </div>
         <ForumNewPost />
       </div>
-    </div>
+  </div>
 
 }
 

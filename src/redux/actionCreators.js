@@ -1,10 +1,11 @@
 export const getPlants = (searchQuery) => {
   const url= !searchQuery? "http://localhost:3000/plants" : `http://localhost:3000/plants${searchQuery}`
-    return dispatch => fetch(url)
-    .then(res => res.json())
-    .then(plants => {
-      dispatch({type: "GET_PLANTS", payload: plants.plant_records})}
-    )
+  
+  return dispatch => fetch(url)
+  .then(res => res.json())
+  .then(plants => {
+    dispatch({type: "GET_PLANTS", payload: plants.plant_records})}
+  )
 } 
 
 export const getPlant = (id, history) => {
@@ -64,8 +65,8 @@ export const autoLogin = () => {
   return dispatch => fetch ("http://localhost:3000/me",{
     headers: {
       'Authorization' : localStorage.token
-      // this is the token i am sending over to the backend. we can grab this data as request.headers["Authorization"]
-      //on our backend
+      // this is the token i am sending over to the backend. we can grab this data 
+      // as request.headers["Authorization"]
     }
   })
   .then(res => res.json())
@@ -76,11 +77,12 @@ export const autoLogin = () => {
 }
 
 export const logOut = () => {
-    localStorage.removeItem("token")
-    return ({type: "LOGOUT"})
-  }
+  localStorage.removeItem("token")
+  return ({type: "LOGOUT"})
+}
 
 export const clearErrors = () => ({type:"CLEAR_ERROR"})
+
 
 export const addPlantToUser = (user,id) =>{
   return dispatch => fetch (`http://localhost:3000/users/${user.id}`, {

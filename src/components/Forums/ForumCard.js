@@ -33,11 +33,9 @@ function ForumCard (props) {
         />
         </ListItem>
       <Divider variant="inset" component="li" />
-
-  </div>
+    </div>
   )
-
-
+  
 }
 
 const mapStateToProps =(state) => {

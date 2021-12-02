@@ -13,8 +13,8 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
     <div className="forumShowData">
       <h1>{title}</h1>
       {imgUrl && <img src={imgUrl} alt={title} className="forumPic"/>}
-      <h3>{content}</h3>
-        by {user.username}
+      <h4>{content}</h4>
+      - {user.username}
     </div>
     <CommentIndex />
     <br />
@@ -31,11 +31,8 @@ function ForumShow({title, content, imgUrl, user, getForumTopic, id, clearForumT
 
   return id ? loadedPage() : spinner()
 
-
 }
 
-const mapStateToProps= (state)=> {
-    return {...state.forumTopic}
-}
+const mapStateToProps= (state)=> {return {...state.forumTopic}}
 
 export default connect(mapStateToProps, { getForumTopic, clearForumTopic})(ForumShow)

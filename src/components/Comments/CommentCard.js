@@ -8,29 +8,27 @@ import Typography from '@mui/material/Typography';
 
 function CommentCard({content, username}){
 
-    return <div className="commentShow">
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt={username} src="/static/images/avatar/1.jpg" />
-        </ListItemAvatar>
-        <ListItemText
-          primary={content}
-          secondary={
-            <>
-              <Typography
-                sx={{ display: 'inline' }}
-                component="span"
-                variant="body2"
-                color="text.primary"
-              >
-                -{username}
-              </Typography>
-            </>
-          }
-        />
-        </ListItem>
-      <Divider variant="inset" component="li" />
-    </div>
+  return <div className="commentShow">
+    <ListItem alignItems="flex-start" sx={{bgcolor: 'background.paper'}}>
+      <ListItemAvatar>
+        <Avatar alt={username} src="/static/images/avatar/1.jpg" />
+      </ListItemAvatar>
+      <ListItemText
+        primary={content}
+        secondary={
+            <Typography
+              sx={{ display: 'inline' }}
+              component="span"
+              variant="body2"
+              color="text.primary"
+            >
+              -{username}
+            </Typography>
+        }
+      />
+      </ListItem>
+    <Divider variant="inset" component="li" />
+  </div>
 
 }
 

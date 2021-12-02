@@ -12,9 +12,6 @@ import { useHistory } from 'react-router-dom'
 import { HomePage } from './indexExports'
 
 
-
-
-
 function Auth(props){
   const history = useHistory()
   const [username, setUsername] = useState("")
@@ -46,8 +43,7 @@ function Auth(props){
     <HomePage/>    
         <CssBaseline />
         <div className="alert"> {props.errors}</div>
-        <Box
-          sx={{
+        <Box sx={{
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
@@ -56,7 +52,7 @@ function Auth(props){
         >
           Hello! In order to access the site, you must have an account with us.
           <Typography component="h1" variant="h3">
-          {signUp ?  "Sign up!" : "Log in!"}
+            {signUp ?  "Sign up!" : "Log in!"}
           </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
@@ -81,17 +77,17 @@ function Auth(props){
               value={password} onChange={(e) =>setPassword(e.target.value)}
             />
             {signUp && <div className="passwordConf">
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password-conf"
-              label="Confirm Password"
-              type="password"
-              id="password-conf"
-              value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}>
-            </ TextField>
-            <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password-conf"
+                label="Confirm Password"
+                type="password"
+                id="password-conf"
+                value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}>
+              </ TextField>
+              <div className="alert">{invalidPassword && "Passwords Don't Match"}</div>
             </div>
             }
           
@@ -113,9 +109,7 @@ function Auth(props){
   </>
 }
 
-const mapStateToProps= (state)=> {
-  return state
-}
+const mapStateToProps= (state)=> { return state }
 
 export default connect (mapStateToProps, { submitSignUp, submitLogin , clearErrors})(Auth)
 
