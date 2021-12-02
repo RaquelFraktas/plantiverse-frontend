@@ -3,18 +3,13 @@ import { connect } from 'react-redux'
 
 function AddOrRemovePlantButton(props){
 
-    const checkForPlantId = props.user.plants.map(userPlant=> userPlant.id === props.plantId)
+  const checkForPlantId = props.user.plants.map(userPlant=> userPlant.id === props.plantId)
+  
+  const addButton = () => <Button className="addPlantButton" onClick={props.handleAddPlantToCollection}>Add Plant to Collection</Button>
+  const removeButton = () => <Button className="addPlantButton" onClick={props.removeFromPlantCollection} >Remove From Collection</Button>
+  const renderAddPlantButton = () => <> {!checkForPlantId.includes(true) ? addButton() : removeButton()}</>
 
-
-    const renderAddPlantButton =() => <>
-
-       {!checkForPlantId.includes(true) ? <Button className="addPlantButton" onClick={props.handleAddPlantToCollection}>Add Plant to Collection</Button> : <Button className="addPlantButton" onClick={props.removeFromPlantCollection} >Remove From Collection</Button>}
-    </>
-    
-
-   return<>
-      {renderAddPlantButton()}
-    </>
+  return <> {renderAddPlantButton()} </>
 }
 
 const mapStateToProps = (state) =>{
