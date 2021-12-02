@@ -9,10 +9,7 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
   const routeId = useParams().id
   const history = useHistory()
 
-
   const spinner = () => <div className="loader" />
-
-  
 
   const loadedPage= () => <div className="plantShow">
     <h1>{name}</h1>
@@ -30,13 +27,9 @@ function PlantShow({name, altName, imgUrl, origin, description, getPlant, clearP
 
 
   return id ? loadedPage() : spinner()
-
 }
 
 
-const mapStateToProps = (state) => {
-    return {...state.selectedPlant} 
-}
+const mapStateToProps = (state) => { return {...state.selectedPlant} }
   
 export default connect(mapStateToProps, { getPlant, clearPlant, clearErrors })(PlantShow)
-// using the above dispatch method adds it to our plantshow props

@@ -70,8 +70,6 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
   )
 }
 
-const mapStateToProps = (state) =>{
-  return {...state}
-}
+const mapStateToProps = (state) =>{ return {...state} }
 
 export default connect(mapStateToProps ,{ addPlantToUser, removePlantFromUser })(PlantCard)
