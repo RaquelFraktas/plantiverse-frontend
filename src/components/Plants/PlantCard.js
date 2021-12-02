@@ -1,5 +1,5 @@
 // import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useHistory } from "react-router-dom"
 import { Image } from 'react-bootstrap'
 import { connect } from 'react-redux'
@@ -27,19 +27,16 @@ const useStyles = makeStyles(() => ({
 function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUser, user, removePlantFromUser}){
   const history = useHistory()
   const [isHovered, setHover] = useState(false);
-  // const [addPlant, setAddPlant] = useState();
   const classes = useStyles();
 
   const handleAddPlantToCollection = (e) =>{
     e.preventDefault()
     addPlantToUser([user, id])
-    // setAddPlant(true)
   }
 
   const handleRemoveFromPlantCollection= (e) =>{
     e.preventDefault()
     removePlantFromUser([user, id])
-    // setAddPlant(false)
   }
 
   const goToPlantShow = (e)=>{
@@ -47,15 +44,15 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
     history.push(`/plants/${id}`)
   }
 
-  // useEffect(removePlantFromUser, [removePlantFromUser])
-
   return (
     <div className="plantCard" 
     onMouseOver={() => setHover(true)} 
     onMouseLeave={() => setHover(false)}>
  
       <Image src={imgUrl} alt={name} className="imgCard"/>
-      {isHovered && <AddOrRemovePlantButton handleAddPlantToCollection={handleAddPlantToCollection} removeFromPlantCollection={handleRemoveFromPlantCollection} plantId={id} />}
+      {isHovered && <AddOrRemovePlantButton handleAddPlantToCollection={handleAddPlantToCollection} 
+        removeFromPlantCollection={handleRemoveFromPlantCollection} 
+        plantId={id}/>}
 
         <br/>
         <ImageListItemBar
@@ -70,8 +67,6 @@ function PlantCard({id, name, altName, imgUrl, description, origin, addPlantToUs
           }
         />  
     </div>
-  
-  
   )
 }
 
