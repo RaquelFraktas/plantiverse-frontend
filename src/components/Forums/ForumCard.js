@@ -39,7 +39,7 @@ function ForumCard (props) {
 }
 
 const mapStateToProps =(state) => {
-    return {...state}
+    return {...state.forumTopics}
 }
 
 export default connect (mapStateToProps)(ForumCard)
