@@ -55,7 +55,6 @@ export default function reducer(state=initialState, {type, payload}){
     case "DELETE_PLANT_FROM_USER":
       return {...state, user: {...state.user, 
         plants: payload}};
-      // return {...state, user: {...state.user, plants:[...state.user.plants.filter(plant => plant.id !== payload.id)]}};
     case "GET_FORUM_TOPIC":
       return {...state, forumTopic: payload}
     case "POST_FORUM_TOPIC":
