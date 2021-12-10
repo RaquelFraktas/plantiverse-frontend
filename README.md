@@ -3,7 +3,10 @@ For this app, make sure you are also running your backend server, which can be f
 
 https://github.com/RaquelFraktas/plantiverse-backend
 
-This app is a social netowrking site for plant owners.
+This app is a social netowrking site for plant owners. 
+
+For this version, the website is best displayed on full screen. To access the site's functionality, you must create an account, or log in. 
+
 
 In the project directory, you can run:
 
