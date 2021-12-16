@@ -14,7 +14,7 @@ As a logged in user, you can:
  * Add or remove plants to/from your collection in the directory
  * Look at individual plant info
  * Create topics in the message boards for discussion
- * Comment on the message boards
+ * Comment on the message boards 
 
 # In the project directory, you can run:
 
