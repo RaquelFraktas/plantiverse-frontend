@@ -16,7 +16,7 @@ As a logged in user, you can:
  * Create topics in the message boards for discussion
  * Comment on the message boards 
 
-# In the project directory, you can run:
+# In the project directory, to run this project locally:
 
 ### `yarn start`
 or 
