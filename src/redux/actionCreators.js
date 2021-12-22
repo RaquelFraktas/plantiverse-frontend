@@ -1,5 +1,7 @@
+const api = "https://plantiverse-api.herokuapp.com"
+
 export const getPlants = (searchQuery) => {
-  const url= !searchQuery? "http://localhost:3000/plants" : `http://localhost:3000/plants${searchQuery}`
+  const url= !searchQuery? api + "/plants" : api + `/plants${searchQuery}`
   
   return dispatch => fetch(url)
   .then(res => res.json())
@@ -9,7 +11,7 @@ export const getPlants = (searchQuery) => {
 } 
 
 export const getPlant = (id, history) => {
-  return dispatch => fetch (`http://localhost:3000/plants/${id}`)
+  return dispatch => fetch (api + `/plants/${id}`)
   .then(res => res.json())
   .then(plant => {
     if(!plant.error){
@@ -24,7 +26,7 @@ export const getPlant = (id, history) => {
 export const clearPlant = () => ({type:"CLEAR_PLANT"})
 
 export const submitSignUp = (user) =>{
-  return dispatch => fetch ("http://localhost:3000/users", {
+  return dispatch => fetch (api + "/users", {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
@@ -43,7 +45,7 @@ export const submitSignUp = (user) =>{
 }
 
 export const submitLogin = (user) =>{
-  return dispatch => fetch ("http://localhost:3000/login", {
+  return dispatch => fetch (api + "/login", {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
@@ -62,7 +64,7 @@ export const submitLogin = (user) =>{
 }
 
 export const autoLogin = () => {
-  return dispatch => fetch ("http://localhost:3000/me",{
+  return dispatch => fetch (api + "/me",{
     headers: {
       'Authorization' : localStorage.token
       // this is the token i am sending over to the backend. we can grab this data 
@@ -85,7 +87,7 @@ export const clearErrors = () => ({type:"CLEAR_ERROR"})
 
 
 export const addPlantToUser = (user,id) =>{
-  return dispatch => fetch (`http://localhost:3000/users/${user.id}`, {
+  return dispatch => fetch (api + `/${user.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
@@ -101,7 +103,7 @@ export const addPlantToUser = (user,id) =>{
 }
 
 export const removePlantFromUser = ([user,id]) =>{
-  return dispatch => fetch (`http://localhost:3000/users/${user.id}`, {
+  return dispatch => fetch (api + `/${user.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
@@ -117,7 +119,7 @@ export const removePlantFromUser = ([user,id]) =>{
 }
 
 export const getUser = (id) => {
-  return dispatch => fetch (`http://localhost:3000/users/${id}`)
+  return dispatch => fetch (api + `/users/${id}`)
   .then(res => res.json())
   .then(user => dispatch({type: "GET_USER", payload: user}))
 }
@@ -125,7 +127,7 @@ export const getUser = (id) => {
 export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})
 
 export const getForumTopics = () => {
-  return dispatch => fetch("http://localhost:3000/message_boards")
+  return dispatch => fetch(api + "/message_boards")
   .then(res => res.json())
   .then(forumTopics => {
     dispatch({type: "GET_FORUM_TOPICS", payload: forumTopics})
@@ -133,7 +135,7 @@ export const getForumTopics = () => {
 )} 
 
 export const getForumTopic = (id) => {
-  return dispatch => fetch (`http://localhost:3000/message_boards/${id}`)
+  return dispatch => fetch (api + `/message_boards/${id}`)
   .then(res => res.json())
   .then((forumTopic) => {
     dispatch({type: "GET_FORUM_TOPIC", payload: forumTopic})
@@ -141,7 +143,7 @@ export const getForumTopic = (id) => {
 }
 
 export const postForumTopic = (forumTopic, history) => {
-  return dispatch => fetch("http://localhost:3000/message_boards", {
+  return dispatch => fetch(api + "/message_boards", {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
@@ -164,7 +166,7 @@ export const postForumTopic = (forumTopic, history) => {
 export const clearForumTopic = () => ({type:"CLEAR_FORUM_TOPIC"})
 
 export const postComment = (content,forumTopicId, currentUserId) => {
-  return dispatch => fetch(`http://localhost:3000/message_boards/${forumTopicId}/comments`, {
+  return dispatch => fetch(api + `/message_boards/${forumTopicId}/comments`, {
     method: 'POST',
     headers: {
       'Content-Type' : 'application/json',
@@ -183,7 +185,7 @@ export const postComment = (content,forumTopicId, currentUserId) => {
 }
 
 export const getComments = (id) => {
-  return dispatch => fetch(`http://localhost:3000/message_boards/${id}/comments`)
+  return dispatch => fetch( api + `/message_boards/${id}/comments`)
   .then(res => res.json())
   .then(comments => {
     dispatch({type: "GET_COMMENTS", payload: comments})
