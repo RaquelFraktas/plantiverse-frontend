@@ -16,7 +16,7 @@ As a logged in user, you can:
  * Create topics in the message boards for discussion
  * Comment on the message boards 
 
-
+<br>
 
 ## Setup
 
@@ -24,6 +24,7 @@ This app requires you to set an ENV variable called API. To get this started on 
 
 ```REACT_APP_API=http://localhost:3000```
 
+<br>
 
 ## In the project directory, to run this project locally:
 
@@ -38,6 +39,8 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits. You will also see any lint errors in the console.
 
+
+<br>
 
 ### `yarn test`
  
