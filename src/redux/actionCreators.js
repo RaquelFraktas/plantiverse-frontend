@@ -104,7 +104,7 @@ export const addPlantToUser = (user,id) =>{
 }
 
 export const removePlantFromUser = ([user,id]) =>{
-  return dispatch => fetch (api + `/${user.id}`, {
+  return dispatch => fetch (api + `/users/${user.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
