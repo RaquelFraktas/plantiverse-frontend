@@ -27,15 +27,17 @@ This app requires you to set an ENV variable called API. To get this started on 
 
 ## In the project directory, to run this project locally:
 
-### `yarn start`
-or 
 ### `npm start`
 
-Runs the app in the development mode.
+Since the port naturally starts on 3000, which is the same as the rails server, it is recommended that you force the port to run on 3001(or any other of your choosing) in ```package.json```. To do so, in the script section, replace line 26 :
+
+```"start": "react-scripts start",``` with ```"start": "PORT=3001 react-scripts start",``` 
+
+
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits. You will also see any lint errors in the console.
+
 
 ### `yarn test`
  
