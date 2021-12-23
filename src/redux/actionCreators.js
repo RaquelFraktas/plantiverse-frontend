@@ -87,7 +87,8 @@ export const clearErrors = () => ({type:"CLEAR_ERROR"})
 
 
 export const addPlantToUser = (user,id) =>{
-  return dispatch => fetch (api + `/${user.id}`, {
+  console.log(user, id)
+  return dispatch => fetch (api + `/users/${user.id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type' : 'application/json',
