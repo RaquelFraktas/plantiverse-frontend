@@ -1,6 +1,7 @@
 const api = process.env.REACT_APP_API
 //the above environmental var is for development
 // "https://plantiverse-api.herokuapp.com"
+//this is where we want to make out fetches to in deployment
 
 export const getPlants = (searchQuery) => {
   const url= !searchQuery? api + "/plants" : api + `/plants${searchQuery}`
