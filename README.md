@@ -16,7 +16,16 @@ As a logged in user, you can:
  * Create topics in the message boards for discussion
  * Comment on the message boards 
 
-# In the project directory, to run this project locally:
+
+
+## Setup
+
+This app requires you to set an ENV variable called API. To get this started on your local machine, please create a .env file in your root directory and add the backend URL like this:
+
+```REACT_APP_API=http://localhost:3000```
+
+
+## In the project directory, to run this project locally:
 
 ### `yarn start`
 or 

@@ -1,4 +1,6 @@
-const api = "https://plantiverse-api.herokuapp.com"
+const api = process.env.REACT_APP_API
+//the above environmental var is for development
+// "https://plantiverse-api.herokuapp.com"
 
 export const getPlants = (searchQuery) => {
   const url= !searchQuery? api + "/plants" : api + `/plants${searchQuery}`
@@ -87,7 +89,6 @@ export const clearErrors = () => ({type:"CLEAR_ERROR"})
 
 
 export const addPlantToUser = (user,id) =>{
-  console.log(user, id)
   return dispatch => fetch (api + `/users/${user.id}`, {
     method: 'PATCH',
     headers: {
