@@ -9,43 +9,13 @@ a:hover{
   color:hsl(302, 79%, 80%);
 }
 
-footer{
-  position: fixed;
-  background:linear-gradient(to right top, hsla(302, 78%, 80%, 0.762), #fff);
-  bottom:0px;
-  height:50px;
-  width:100%;
-  z-index: 2;
-  border-radius: 10px;
-  font-size: 16px;
-  text-align: center;
-  display: block;
-}
-
 footer > a{
   color: rgba(138,97,39,1);
 }
 
-
 ul{
   list-style-type: none;
   text-align: left;
-}
-
-.container {
-  position: absolute;
-  background: rgb(252, 252, 252);
-  min-height: 75vh;
-  width:80%;
-  /* min-width: 120vh; */
-  align-items: center;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 175px;
-  z-index: 1;
-  border-radius: 10px;
-  box-shadow: 0px 0px 8px rgba(149, 154, 160, 0.832);
-  padding-bottom: 65px;
 }
 
 .navbarLink {
@@ -60,6 +30,11 @@ ul{
   color: yellow;
 }
 
+.commentContainer {
+  position: relative;
+  left: 30%;
+}
+
 #banner{
   position: absolute;
   background: url('./plantsBanner.jpg');
@@ -68,162 +43,9 @@ ul{
   left: 0;
   width: 100%;
   padding: 200px;
-  -webkit-clip-path: inset(150px 0px 20px 0px);
+  /* -webkit-clip-path: inset(150px 0px 20px 0px);
   clip-path: inset(150px 0px 0px 0px);
-  margin-top: -86px;
-}
-
-
-/* user pages */
-.userShow {
-  position: relative;
-  padding: 20px;
-  left:40px; 
-  top:20px;
-  text-align: center;
-}
-
-.userPlantCollection{
-  float:left;
-  padding-bottom: 50px;
-}
-
-.selectedUserPosts{
-  position: relative;
-  width:30%;
-  float:left;
-  left: 10%;
-  margin-top: 5%; 
-}
-
-/* forum pages */
-.forumIndex{
-  padding: 20px;
-}
-
-.forumIndexDetails{
-  padding: 20px;
-  display: flex;
-}
-
-.forumShowData{
-  position: relative;
-  padding-top: 40px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  padding-left: 60px;
-  text-align: center;
-
-}
-
-.forumPic {
-  max-width: 400px;
-  max-height: 500px;
-  left: 50%;
-  top: 50%;
-}
-
-.bottomLinksOfForum{
-  position: relative;
-  bottom: 15px;
-  left: 60px;
-  margin-right: 125px;
-  font-size: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.formDialog{
-  align-content: center;
-}
-
-.commentContainer {
-  position: relative;
-  left: 30%;
-
-}
-/* 
-.commentsList{
-  -webkit-clip-path: inset(150px 0px 20px 0px);
-  clip-path: inset(0px 600px 0px 0px);
-
-} */
-
-
-.messageBoardCards{
-  flex: 1;
-  margin-right: 20px;
-}
-
-
-/* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
-.loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid hsl(302, 79%, 80%);
-  border-radius: 70%;
-  width: 140px;
-  height: 140px;
-  animation: spin 2s linear infinite;
-  margin-top: 20%;
-  margin-left: 35%
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* plant pages */
-.plantCards {
-  display: flex; 
-  flex-wrap: wrap;
-  justify-content: space-around; 
-  padding-top: 10px;
-  /* padding-bottom: 65px; */
-}
-
-.imgCard {
-  position: relative;
-  z-index: 0;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  display: block;    
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.imgCard:hover {
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
-  /* opacity: 1; */
-}
-
-.addPlantButton{
-  position: absolute;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  top: 40%;
-  left: 50%;
-  height: 50px;
-  background-color: rgb(54, 148, 25);
-  border-color: rgba(54,148,25,0.67);
-  color:white;
-  border-radius: 5px;
-  /* transition: opacity .2s, visibility .2s; */
-}
-
-.addPlantButton:hover {
-  background-color: rgba(54,148,25,0.67);
-}
-
-.plantShow{
-  padding: 40px;
-  width: 50%;
-  margin: auto;
-  text-align: center;
-
+  margin-top: -86px; */
 }
 
 .alert{
@@ -233,3 +55,218 @@ ul{
 }
 
 
+@media (min-width: 1000px) {
+  footer{
+    position: fixed;
+    background:linear-gradient(to right top, hsla(302, 78%, 80%, 0.762), #fff);
+    bottom:0px;
+    height:50px;
+    width:100%;
+    z-index: 2;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+  }
+  
+
+  
+  .container {
+    position: absolute;
+    background: rgb(252, 252, 252);
+    min-height: 75vh;
+    width:80%;
+    /* min-width: 120vh; */
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 175px;
+    z-index: 1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(149, 154, 160, 0.832);
+    padding-bottom: 65px;
+  }
+  
+  
+  #banner{
+    /* position: absolute;
+    background: url('./plantsBanner.jpg');
+    background-repeat: repeat-x;
+    top: 0;
+    left: 0; */
+    /* width: 100%; */
+    padding: 200px; 
+    -webkit-clip-path: inset(150px 0px 20px 0px);
+    clip-path: inset(150px 0px 0px 0px);
+    margin-top: -86px;
+  }
+  
+  
+  /* user pages */
+  .userShow {
+    position: relative;
+    padding: 20px;
+    left:40px; 
+    top:20px;
+    text-align: center;
+  }
+  
+  .userPlantCollection{
+    float:left;
+    padding-bottom: 50px;
+  }
+  
+  .selectedUserPosts{
+    position: relative;
+    width:30%;
+    float:left;
+    left: 10%;
+    margin-top: 5%; 
+  }
+  
+  /* forum pages */
+  .forumIndex{
+    padding: 20px;
+  }
+  
+  .forumIndexDetails{
+    padding: 20px;
+    display: flex;
+  }
+  
+  .forumShowData{
+    position: relative;
+    padding-top: 40px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 60px;
+    text-align: center;
+  
+  }
+  
+  .forumPic {
+    max-width: 400px;
+    max-height: 500px;
+    left: 50%;
+    top: 50%;
+  }
+  
+  .bottomLinksOfForum{
+    position: relative;
+    bottom: 15px;
+    left: 60px;
+    margin-right: 125px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .formDialog{
+    align-content: center;
+  }
+  
+  /* 
+  .commentsList{
+    -webkit-clip-path: inset(150px 0px 20px 0px);
+    clip-path: inset(0px 600px 0px 0px);
+  
+  } */
+  
+  
+  .messageBoardCards{
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  
+  /* w3schools https://www.w3schools.com/howto/howto_css_loader.asp */
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid hsl(302, 79%, 80%);
+    border-radius: 70%;
+    width: 140px;
+    height: 140px;
+    animation: spin 2s linear infinite;
+    margin-top: 20%;
+    margin-left: 35%
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* plant pages */
+  .plantCards {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    padding-top: 10px;
+    /* padding-bottom: 65px; */
+  }
+  
+  .imgCard {
+    position: relative;
+    z-index: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;    
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .imgCard:hover {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    /* opacity: 1; */
+  }
+  
+  .addPlantButton{
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    height: 50px;
+    background-color: rgb(54, 148, 25);
+    border-color: rgba(54,148,25,0.67);
+    color:white;
+    border-radius: 5px;
+    /* transition: opacity .2s, visibility .2s; */
+  }
+  
+  .addPlantButton:hover {
+    background-color: rgba(54,148,25,0.67);
+  }
+  
+  .plantShow{
+    padding: 40px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  
+  }
+  
+
+
+
+}
+
+@media (min-width: 320px) and (max-width: 999px) {
+
+/* 
+  .navbarLink {
+    /* margin-left: 1em; */
+    /* font-size: "10px";
+  } */
+
+  #banner{
+    padding: 190px; 
+    -webkit-clip-path: inset(200px 0px 20px 0px);
+    clip-path: inset(200px 10px 0px 0px);
+    margin-top: -130px;
+  }
+
+}
