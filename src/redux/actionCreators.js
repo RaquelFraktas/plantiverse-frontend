@@ -1,8 +1,8 @@
-const api = process.env.REACT_APP_API
+const api = "https://plantiverse-api.herokuapp.com"
 //the above environmental var is for development
 // "https://plantiverse-api.herokuapp.com"
 //config an env variable to equal that when deploying
-console.log(api)
+
 export const getPlants = (searchQuery) => {
   const url= !searchQuery? api + "/plants" : api + `/plants${searchQuery}`
   
