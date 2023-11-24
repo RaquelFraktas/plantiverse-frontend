@@ -29,6 +29,7 @@ export const getPlant = (id, history) => {
 export const clearPlant = () => ({type:"CLEAR_PLANT"})
 
 export const submitSignUp = (user) =>{
+  console.log(api)
   return dispatch => fetch (api + "/users", {
     method: 'POST',
     headers: {
