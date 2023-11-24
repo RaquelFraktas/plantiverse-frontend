@@ -9,6 +9,7 @@ export default function Navbar(){
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
+
   return <nav>
     <AppBar position="sticky" style={{backgroundColor: "rgba(54,148,25,0.67)"}}>
       <CssBaseline />
