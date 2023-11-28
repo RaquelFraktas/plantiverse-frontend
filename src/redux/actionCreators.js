@@ -1,4 +1,4 @@
-const api = "https://plantiverse-api.herokuapp.com"
+const api = process.env.REACT_APP_API
 //the above environmental var is for development
 // "https://plantiverse-api.herokuapp.com"
 //config an env variable to equal that when deploying
@@ -29,7 +29,6 @@ export const getPlant = (id, history) => {
 export const clearPlant = () => ({type:"CLEAR_PLANT"})
 
 export const submitSignUp = (user) =>{
-  console.log(api)
   return dispatch => fetch (api + "/users", {
     method: 'POST',
     headers: {
